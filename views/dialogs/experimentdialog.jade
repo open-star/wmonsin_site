@@ -1,0 +1,42 @@
+div
+    .modal-header
+        .modal-title
+            h3 試用お申し込み(無料)
+    .modal-body
+        ng-form(name="validate")
+            .row
+                .col-xs-12
+                    .row
+                        .col-xs-4
+                            label(style="margin-bottom:10px;font-weight:bold;") メールアドレス
+                        .col-xs-8
+                            div(ng-messages="validate.email.$error")
+                                div.text-danger(ng-message="required") 必須項目です。
+                                div.text-danger(ng-message="pattern") メールアドレス形式ではありません。
+                                div.text-danger(ng-message="maxlength") 30字以内にして下さい。
+                                div.text-danger(ng-message="minlength") 5文字以上にして下さい。
+                    .row
+                        .col-xs-12
+                            input.form-control(style="margin-bottom:10px;",ng-model='email', type='email', name='email', placeholder='name@domain', required, ng-minlength="5", ng-maxlength="30", ng-pattern="/^[a-z0-9-._.+]+@[a-z0-9-]+(\.[a-z0-9-]+)*$/i")
+                    .row
+                        .col-xs-4
+                            label(style="margin-bottom:10px;font-weight:bold;")  お名前
+                        .col-xs-8
+                            div(ng-messages="validate.name.$error")
+                                div.text-danger(ng-message="required") 必須項目です。
+                                div.text-danger(ng-message="maxlength") 30字以内にして下さい。
+                                div.text-danger(ng-message="minlength") 5文字以上にして下さい。
+                    .row
+                        .col-xs-12
+                            input.form-control(style="margin-bottom:10px;",ng-model='name', type='text', name='name', placeholder='TARO YAMADA', required,ng-minlength="5", ng-maxlength="30")
+
+
+
+    .modal-footer
+        .row
+            .col-xs-10.col-xs-offset-1
+                button.btn.btn-primary.btn-sm(ng-click='ok()', ng-disabled="validate.$invalid", aria-label="OK") お申し込み
+                button.btn.btn-warning.btn-sm(ng-click='cancel()', aria-label="Cancel") キャンセル
+        .row
+            .col-xs-10.col-xs-offset-1
+                div(style="text-align:center;font-size:13px;margin-top:10px;font-weight:bold;") {{errormessage}}

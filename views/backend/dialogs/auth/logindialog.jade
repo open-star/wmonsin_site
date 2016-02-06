@@ -1,0 +1,39 @@
+md-dialog.box-edge(flex)
+    md-toolbar
+        .md-toolbar-tools(layout="row", layout-align="end center")
+            h3(flex)
+                span(flex) ログイン
+            div
+                md-button.md-fab.md-warn(ng-click='cancel()', aria-label="Cancel", style="position:relative;top:20px;")
+                    ng-md-icon.iconfill(icon="clear", style="position:relative;top:4px;", size="46")
+                    md-tooltip キャンセル
+
+    md-dialog-content.layout-padding
+        ng-form(name="validate")
+            div(layout="column")
+                div(layout="row", layout-align="start center")
+                    md-input-container(flex)
+                        label メールアドレス
+                        input(ng-model="items.username", data-ng-required="true",type='email', name="username", placeholder='xxxxxxx@xxx.co.jp', required, md-maxlength="30", ng-pattern="/^[a-z0-9-._.+]+@[a-z0-9-]+(\.[a-z0-9-]+)*$/i")
+                        div(ng-messages="validate.username.$error")
+                            div.required(ng-message="required") 必須項目です。
+                            div.red-messege(ng-message="pattern") メールアドレス形式ではありません。
+                            div.red-messege(ng-message="maxlength") 30字以内にして下さい。
+
+                    md-input-container(flex)
+                        label パスワード
+                        input(ng-model="items.password", type='password', name="password", placeholder='*******', required, ng-minlength="4", md-maxlength="30", data-ng-required="true",)
+                        div(ng-messages="validate.password.$error")
+                            div.required(ng-message="required") 必須項目です。
+                            div.red-messege(ng-message="minlength") 4文字以上にして下さい。
+                            div.red-messege(ng-message="maxlength") 30字以内にして下さい。
+
+    md-dialog-actions(layout="row")
+        div.md-actions(layout="row", layout-align="space-around center")
+            md-button.md-raised.md-primary(ng-click='answer(items)', ng-disabled="validate.$invalid", aria-label="") ログイン
+            div
+                a.btn.btn-block.btn-social.btn-facebook(href="/auth/facebook")
+                    i.fa.fa-facebook
+                    div Facebook
+
+        div(style="text-align:center;font-size:13px;margin-top:20px;font-weight:bold;") {{message}}

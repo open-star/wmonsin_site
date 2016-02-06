@@ -1,0 +1,156 @@
+doctype html
+//if lt IE 7
+  html.no-js.ie6(lang='en')
+//if IE 7
+  html.no-js.ie7(lang='en')
+//if IE 8
+  html.no-js.ie8(lang='en')
+// [if gt IE 8] <!
+html.no-js(lang='en')
+    // <![endif]
+    head(prefix="og: //ogp.me/ns# fb: //ogp.me/ns/fb# article: //ogp.me/ns/article#")
+        meta(property="og:type",   content="article")
+        meta(property="og:url",    content="/")
+        meta(property="og:title",  content="問診票システム w-monsin")
+        meta(property="og:image",  content="img/freeze/Slides/family-freeze.png")
+        meta(property="og:description",  content="クラウド型の問診票です。運用コストの低いクラウド型ですが、問診票をご自分でカスタマイズ可能で、診療科や診療内容別に複数の問診票を使用可能です")
+        meta(charset='UTF-8')
+        title 問診票システム | w-monsin
+
+        link(rel="apple-touch-icon", sizes="57x57", href="icon/apple-touch-icon-57x57.png")
+        link(rel="apple-touch-icon", sizes="60x60", href="icon/apple-touch-icon-60x60.png")
+        link(rel="apple-touch-icon", sizes="72x72", href="icon/apple-touch-icon-72x72.png")
+        link(rel="apple-touch-icon", sizes="76x76", href="icon/apple-touch-icon-76x76.png")
+        link(rel="apple-touch-icon", sizes="114x114", href="icon/apple-touch-icon-114x114.png")
+        link(rel="apple-touch-icon", sizes="120x120", href="icon/apple-touch-icon-120x120.png")
+        link(rel="apple-touch-icon", sizes="144x144", href="icon/apple-touch-icon-144x144.png")
+        link(rel="apple-touch-icon", sizes="152x152", href="icon/apple-touch-icon-152x152.png")
+        link(rel="apple-touch-icon", sizes="180x180", href="icon/apple-touch-icon-180x180.png")
+        link(rel="icon", type="image/png", href="icon/favicon-32x32.png", sizes="32x32")
+        link(rel="icon", type="image/png", href="icon/android-chrome-192x192.png", sizes="192x192")
+        link(rel="icon", type="image/png", href="icon/favicon-96x96.png", sizes="96x96")
+        link(rel="icon", type="image/png", href="icon/favicon-16x16.png", sizes="16x16")
+        link(rel="manifest", href="icon/manifest.json")
+        link(rel="mask-icon", href="icon/safari-pinned-tab.svg", color="#5bbad5")
+
+        meta(name="apple-mobile-web-app-title", content="wmonsin")
+        meta(name="application-name", content="wmonsin")
+        meta(name="msapplication-TileColor", content="#da532c")
+        meta(name="msapplication-TileImage", content="icon/mstile-144x144.png")
+        meta(name="theme-color", content="#ffffff")
+
+        meta(name='keywords', content="問診票,医院,クラウド型")
+        meta(name='description', content="クラウド型の問診票です。運用コストの低いクラウド型ですが、問診票をご自分でカスタマイズ可能で、診療科や診療内容別に複数の問診票を使用可能です")
+        meta(name='viewport', content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no')
+        meta(http-equiv='X-UA-Compatible', content='IE=edge,chrome=1')
+
+        link(rel="stylesheet", type="text/css", href="/bower_components/angular-bootstrap/ui-bootstrap-csp.css")
+        link(rel='shortcut icon', href='favicon.png')
+        link(rel='stylesheet', href='css/bootstrap.css')
+        link(rel='stylesheet', href='css/animate.css')
+        link(rel='stylesheet', href='css/font-awesome.min.css')
+        link(rel='stylesheet', href='css/slick.css')
+        link(rel='stylesheet', href='js/rs-plugin/css/settings.css')
+        link(rel='stylesheet', href='css/price.css')
+        link(rel='stylesheet', href='css/table.css')
+
+        script(type='text/javascript', src='js/modernizr.custom.32033.js')
+        link(rel='stylesheet/less', href='less/freeze.less', title='colors')
+        script(type='text/javascript', src='js/less-1.7.0.min.js')
+
+            //if lt IE 9
+              script(src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')
+              script(src='https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js')
+    body(ng-app="ViewApplication", ng-controller="ViewController")
+        .pre-loader
+            .load-con
+                img.animated.fadeInDown(src='img/freeze/logo.png', alt='')
+                .spinner
+                    .bounce1
+                    .bounce2
+                    .bounce3
+
+        block content
+
+script(type="text/javascript", src='/bower_components/jquery/dist/jquery.min.js')
+script(type="text/javascript", src='/bower_components/placeholdem/placeholdem.min.js')
+script(type="text/javascript", src='js/slick.min.js')
+script(type="text/javascript", src='js/rs-plugin/js/jquery.themepunch.plugins.min.js')
+script(type="text/javascript", src='js/rs-plugin/js/jquery.themepunch.revolution.min.js')
+script(type="text/javascript", src='js/waypoints.min.js')
+script(type="text/javascript", src='js/scripts.js')
+
+script(type="text/javascript", src="/bower_components/angular/angular.min.js")
+script(type="text/javascript", src="/bower_components/angular-resource/angular-resource.min.js")
+script(type="text/javascript", src="/bower_components/angular-messages/angular-messages.min.js")
+script(type='text/javascript', src='/bower_components/bootstrap/dist/js/bootstrap.min.js')
+script(type="text/javascript", src="/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js")
+script(type='text/javascript', src='/bower_components/lodash/lodash.min.js')
+script(type="text/javascript", src="https://js.webpay.jp/v1/")
+script(type='text/javascript', src='javascripts/ViewApplication.js')
+script(type='text/javascript', src='javascripts/ViewControllers.js')
+script(type='text/javascript', src='javascripts/WebPayControllers.js')
+script(type='text/javascript', src='javascripts/ExperimentControllers.js')
+script.
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+    ga('create', 'UA-37171600-5', 'auto');
+    ga('send', 'pageview');
+script.
+    $(document).ready(function () {
+        appMaster.preLoader();
+    });
+script.
+    $(function () {
+        if (window.addEventListener) {
+            window.addEventListener("load", shareButtonReadSyncer, false);
+        } else {
+            window.attachEvent("onload", shareButtonReadSyncer);
+        }
+
+        /* シェアボタン */
+        function shareButtonReadSyncer() {
+            setTimeout(function () {
+                //Twitter
+                window.twttr = (function (d, s, id) {
+                    var js, fjs = d.getElementsByTagName(s)[0], t = window.twttr || {};
+                    if (d.getElementById(id))return;
+                    js = d.createElement(s);
+                    js.id = id;
+                    js.src = "https://platform.twitter.com/widgets.js";
+                    fjs.parentNode.insertBefore(js, fjs);
+                    t._e = [];
+                    t.ready = function (f) {
+                        t._e.push(f);
+                    };
+                    return t;
+                }(document, "script", "twitter-wjs"));
+
+                // Google+
+                var scriptTag = document.createElement("script");
+                scriptTag.type = "text/javascript";
+                scriptTag.src = "https://apis.google.com/js/platform.js";
+                scriptTag.async = true;
+                document.getElementsByTagName("head")[0].appendChild(scriptTag);
+
+                //Facebook
+                (function (d, s, id) {
+                    var js, fjs = d.getElementsByTagName(s)[0];
+                    if (d.getElementById(id)) return;
+                    js = d.createElement(s);
+                    js.id = id;
+                    js.src = "//connect.facebook.net/ja_JP/sdk.js#xfbml=1&version=v2.0";
+                    fjs.parentNode.insertBefore(js, fjs);
+                }(document, 'script', 'facebook-jssdk'));
+            }, 1000);	//ページを開いて5秒後(5,000ミリ秒後)にシェアボタンを読み込む
+        }
+    });

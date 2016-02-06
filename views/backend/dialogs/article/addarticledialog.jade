@@ -1,0 +1,32 @@
+md-dialog.box-edge(flex)
+    md-toolbar
+        h3 Add
+        md-button.md-fab.md-warn(ng-click='cancel()', aria-label="Cancel", style="position:relative;top:20px;")
+            ng-md-icon.iconfill(icon="clear", style="position:relative;top:4px;", size="46")
+            md-tooltip キャンセル
+
+    md-dialog-content.layout-padding
+        ng-form(name="validate")
+
+            label name
+            input(ng-model='name', type='text', name='name', placeholder='Enter name', required)
+            div(ng-messages="validate.name.$error")
+                div(ng-message="required") required
+
+            label title
+            input(ng-model='title', type='text', name='title', placeholder='Enter title', required)
+            div(ng-messages="validate.title.$error")
+                div(ng-message="required") required
+
+            label description
+            input(ng-model='description', type='text', name='description', placeholder='Enter description', required)
+            div(ng-messages="validate.description.$error")
+                div(ng-message="required") required
+
+            label text
+            input(ng-model='text', type='text', name='text', placeholder='Enter text', required)
+            div(ng-messages="validate.text.$error")
+                div(ng-message="required") required
+                    
+    md-dialog-actions(layout="row")
+        md-button.md-raised.md-primary(ng-click='ok()', ng-disabled="validate.$invalid", aria-label="") OK

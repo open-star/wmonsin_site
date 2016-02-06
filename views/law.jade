@@ -1,0 +1,139 @@
+extends layout
+
+block content
+
+    .pre-loader
+        .load-con
+            img.animated.fadeInDown(src='img/freeze/logo.png', alt='')
+            .spinner
+                .bounce1
+                .bounce2
+                .bounce3
+    header
+        nav.navbar.navbar-default.navbar-fixed-top(role='navigation')
+            .container
+                // Brand and toggle get grouped for better mobile display
+                .navbar-header
+                    button.navbar-toggle(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1')
+                        span.fa.fa-bars.fa-lg
+                    a.navbar-brand(href='index.html')
+                        img.logo(src='img/openstar1.svg', alt='')
+                // Collect the nav links, forms, and other content for toggling
+                #bs-example-navbar-collapse-1.collapse.navbar-collapse
+                    ul.nav.navbar-nav.navbar-right
+                        li
+                            a(href="/") Home
+                        //li
+                            a(href='/articles') 価格
+                        li
+                            a(href='/privacy') プライバシーポリシー
+                // /.navbar-collapse
+            // /.container
+        // RevSlider
+        div(style="height: 150px;")
+
+    .wrapper
+        section#privacy
+            .container
+                .section-heading.scrollpoint.sp-effect3
+
+                    h1 特定商取引法に関する法律に基づく表示
+                    .divider
+                    .row
+                        .col-xs-12
+                            .row(style="margin:20px;")
+                                .col-xs-6(style="text-align:right;")
+                                    div 事業者名
+                                .col-xs-6(style="text-align:left")
+                                    div 株式会社オープンスター
+                                .col-xs-6(style="text-align:right")
+                                    div 責任者
+                                .col-xs-6(style="text-align:left")
+                                    div 星野 雅昭
+                                .col-xs-6(style="text-align:right")
+                                    div 所在地
+                                .col-xs-6(style="text-align:left")
+                                    div 〒541-0051 大阪市中央区備後町3-6-2 大雅ビル10F-109
+                                .col-xs-6(style="text-align:right")
+                                    div 業者概要
+                                .col-xs-6(style="text-align:left")
+                                    div 医療情報システムの開発、導入、サポート、コンサルタント
+                                .col-xs-6(style="text-align:right")
+                                    div お問い合せ
+                                .col-xs-6(style="text-align:left")
+                                    div 電子メール：　contact＠openstar.biz
+                                    |  (迷惑メール対策のため、@を全角の＠で表示しています)
+                                    br
+                                    | 電話: 06-6123-7056、FAX: 020-4664-1260
+                                    br
+                                    | URL    http://openstar.biz
+                                .col-xs-6(style="text-align:right")
+                                    div お申込み方法
+                                .col-xs-6(style="text-align:left")
+                                    div 本サイトの申し込みフォーム、電子メール、チャット、電話、FAX
+                                .col-xs-6(style="text-align:right")
+                                    div お申込み有効期限
+                                .col-xs-6(style="text-align:left")
+                                   div ホームページに記載の期限内
+                                .col-xs-6(style="text-align:right")
+                                    div 商品の発送方法
+                                .col-xs-6(style="text-align:left")
+                                    div 商品の郵送、ダウンロードURL配布
+                                .col-xs-6(style="text-align:right")
+                                    div お支払い方法
+                                .col-xs-6(style="text-align:left")
+                                    div クレジットカード、代金引換、振り込み
+                                .col-xs-6(style="text-align:right")
+                                    div キャンセル・返品
+                                .col-xs-6(style="text-align:left")
+                                    div 代金の支払い前まではキャンセル可。
+                                .col-xs-6(style="text-align:right")
+                                    div 販売条件
+                                .col-xs-6(style="text-align:left")
+                                    div 日本国内のみ
+                                .col-xs-6(style="text-align:right")
+                                    div 著作権について
+                                .col-xs-6(style="text-align:left")
+                                    div 解説書等の著作権は販売者である株式会社オープンスターに帰属します。
+
+
+                            .row
+                                .border(style="padding:20px;margin:20px;")
+                                    div(style="margin:5px;") 商品によって返品できるものと、できないものがあります。
+                                    | 商品事の規定をご確認下さい。
+                                    br
+                                    | お客様のご都合による返品の場合、送料はお客様負担となりますので、
+                                    br
+                                    | 予めご了承ください。
+                                    br
+                                    | 当方のミス、不良品の返品の場合は、送料は当方が負担いたします。
+
+                            .row(style="margin:20px;")
+                                div 無断での複製・販売を禁止いたします
+                                div 平成28年1月16日
+
+
+
+        footer
+            .container
+
+                .row
+                    .col-sm-10.col-sm-offset-1
+
+                        div(style="margin-bottom:20px;")
+                            a(href='https://www.facebook.com/OpenStar60/', target='_blank')
+                                img(src="/img/facebook_logo.svg", style="height:18px")
+                            div(style="width:100px;margin-left:auto;margin-right:auto;margin-top:10px;")
+
+                .row
+                    .col-sm-10.col-sm-offset-1(style="padding:0;")
+                        .social-area-syncer
+                            row.social-button-syncer
+                                col-sm-4.sc-tw(style="margin:10px;")
+                                    a.twitter-share-button(data-url='http://w-monsin.com', href='https://twitter.com/share', data-lang='ja', data-count='vertical', data-dnt='true') ツイート
+                                col-sm-4.sc-fb(style="margin:10px;")
+                                    .fb-like(data-href='http://w-monsin.com', data-layout='box_count', data-action='like', data-show-faces='true', data-share='false')
+                                col-sm-4(style="margin:10px;")
+                                    div(data-href="http://w-monsin.com", class="g-plusone", data-size="tall")
+
+

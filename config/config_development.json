@@ -1,0 +1,52 @@
+{
+  "state": "deveropment",
+  "loglevel": "TRACE",
+  "domain": "localhost:3000",
+  "dbaddress": "localhost",
+  "db": "wmonsin-site",
+  "user": "root@root",
+  "password": "root77",
+
+  "sessionname": "wmonsin-site",
+  "sessionsecret": "Daisy, Daisy.",
+
+  "tokensecret": "Yes We therefore I think we",
+  "key2": "Man is a thinking reed",
+
+  "facebook": {
+    "clientID": "1676184429271661",
+    "clientSecret": "f3a9ad16cf0d73cd38dfc3aa0843c2fe",
+    "callbackURL": "http://localhost:3000/auth/facebook/callback"
+  },
+
+  "mailaccount": "mail@address.co.jp",
+  "mailsetting": {
+    "host": "address.co.jp",
+    "auth": {
+      "user": "mail@address.co.jp",
+      "pass": "pass",
+      "port": "25"
+    }
+  },
+
+  "registmailsubject": "仮登録完了",
+  "registmailreader": "<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>",
+  "maillink": "認証",
+  "registmailtrailer": "<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>",
+
+  "passmailsubject": "パスワード変更",
+  "passmailreader": "パスワードを変更します",
+  "passmailtrailer": "パスワード",
+
+  "sendconfirm": "認証用のメール。",
+  "usernamealreadyregist": "同じユーザ名が登録されています。",
+  "usernamenotfound": "ユーザ名が登録されていません。",
+  "mailerror": "メールエラー.",
+  "wrongusername": "ユーザ名かパスワードが違っています。",
+
+  "meta":{
+    "title":"",
+    "keywords":"",
+    "description":""
+  }
+}

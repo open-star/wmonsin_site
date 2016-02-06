@@ -1,0 +1,107 @@
+div
+    .modal-header
+        .modal-title
+            h3 新規登録
+            h3 {{type}}
+    .modal-body
+        ng-form(name="validate")
+            .row
+                .col-xs-12
+                    .row
+                        .col-xs-4
+                            label(style="margin-bottom:10px;font-weight:bold;") メールアドレス
+                        .col-xs-8
+                            div(ng-messages="validate.email.$error")
+                                div.text-danger(ng-message="required") 必須項目です。
+                                div.text-danger(ng-message="pattern") メールアドレス形式ではありません。
+                                div.text-danger(ng-message="maxlength") 30字以内にして下さい。
+                                div.text-danger(ng-message="minlength") 5文字以上にして下さい。
+                    .row
+                        .col-xs-12
+                            input.form-control(style="margin-bottom:10px;",ng-model='email', type='email', name='email', placeholder='name@domain', required, ng-minlength="5", ng-maxlength="30", ng-pattern="/^[a-z0-9-._.+]+@[a-z0-9-]+(\.[a-z0-9-]+)*$/i")
+                    .row
+                        .col-xs-4
+                            label(style="margin-bottom:10px;font-weight:bold;")  お名前
+                        .col-xs-8
+                            div(ng-messages="validate.name.$error")
+                                div.text-danger(ng-message="required") 必須項目です。
+                                div.text-danger(ng-message="maxlength") 30字以内にして下さい。
+                                div.text-danger(ng-message="minlength") 5文字以上にして下さい。
+                    .row
+                        .col-xs-12
+                            input.form-control(style="margin-bottom:10px;",ng-model='name', type='text', name='name', placeholder='TARO YAMADA', required,ng-minlength="5", ng-maxlength="30")
+                    .row
+                        .col-xs-8
+                            .row
+                                .col-xs-4
+                                    label(style="margin-bottom:10px;font-weight:bold;") カード番号
+                                .col-xs-8
+                                    div(ng-messages="validate.number.$error")
+                                        div.text-danger(ng-message="required") 必須項目です。
+                                        div.text-danger(ng-message="maxlength") 19字以内にして下さい。
+                                        div.text-danger(ng-message="minlength") 16文字以上にして下さい。
+                            .row
+                                .col-xs-12
+                                    input.form-control(style="margin-bottom:10px;",ng-model='number', type='text', name='number', placeholder='xxxx-xxxx-xxxx-xxxx', required,ng-minlength="16", ng-maxlength="19")
+                        .col-xs-4
+                            .row
+                                .col-xs-4
+                                    label(style="margin-bottom:10px;font-weight:bold;") CVC
+
+                                .col-xs-8
+                                    div(ng-messages="validate.cvc.$error")
+                                        div.text-danger(ng-message="required") 必須項目です。
+                                        div.text-danger(ng-message="maxlength") 4字以内にして下さい。
+                                        div.text-danger(ng-message="minlength") 3文字以上にして下さい。
+                            .row
+                                .col-xs-12
+                                    input.form-control(style="margin-bottom:10px;",ng-model='cvc', type='text', name='cvc', placeholder='xxx', required,ng-minlength="3", ng-maxlength="4")
+                    .row
+                        .col-xs-4
+                            div 有効期限(月)
+                            select.form-control(ng-model="exp_month", required)
+                                option 1
+                                option 2
+                                option 3
+                                option 4
+                                option 5
+                                option 6
+                                option 7
+                                option 8
+                                option 9
+                                option 10
+                                option 11
+                                option 12
+                            div(ng-messages="validate.exp_month.$error")
+                                div.text-danger(ng-message="required") 必須項目です。
+
+                        .col-xs-4
+                            div 有効期限(年)
+                            select.form-control(ng-model="exp_year", required)
+                                option 16
+                                option 17
+                                option 18
+                                option 19
+                                option 20
+                                option 21
+                                option 22
+                                option 23
+                                option 24
+                                option 25
+                                option 26
+                                option 27
+                                option 28
+                            div(ng-messages="validate.exp_year.$error")
+                                div.text-danger(ng-message="required") 必須項目です。
+                        .col-xs-4
+                            //a.btn.btn-primary(tabindex="0", role="button", data-toggle="popover", data-trigger="focus", title="CVC", data-content="CVCとは、デビットカードやクレジットカードの裏面に記載されている暗証番号です。ほとんどのカード（Visa、MasterCard、各種銀行カードなど）では、カード裏面の署名欄に記載された番号の最後の3桁がこれに当たります。American Express（AMEX）カードでは、通常、カード前面の4桁のコードです。") CVCとは
+                            small CVCとは、デビットカードやクレジットカードの裏面に記載されている暗証番号です。Visa、MasterCard、各種銀行カードなどは、カード裏面の署名欄に記載された番号の最後の3桁がこれに当たります。American Expressカードでは、通常、カード前面の4桁のコードです。
+
+    .modal-footer
+        .row
+            .col-xs-10.col-xs-offset-1
+                button.btn.btn-primary.btn-sm(ng-click='ok()', ng-disabled="validate.$invalid || progress", aria-label="OK") 会員登録
+                button.btn.btn-warning.btn-sm(ng-click='cancel()', aria-label="Cancel") キャンセル
+        .row
+            .col-xs-10.col-xs-offset-1
+                div(style="text-align:center;font-size:13px;margin-top:10px;font-weight:bold;") {{errormessage}}

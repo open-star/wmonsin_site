@@ -1,0 +1,538 @@
+extends layout
+
+block content
+
+
+        .pre-loader
+            .load-con
+                img.animated.fadeInDown(src='img/freeze/logo.png', alt='')
+                .spinner
+                    .bounce1
+                    .bounce2
+                    .bounce3
+        header
+            nav.navbar.navbar-default.navbar-fixed-top(role='navigation')
+                .container
+                    // Brand and toggle get grouped for better mobile display
+                    .navbar-header
+                        button.navbar-toggle(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1')
+                            span.fa.fa-bars.fa-lg
+                        a.navbar-brand(href='/')
+                            img.logo(src='img/openstar1.svg', alt='')
+                        a(href='https://github.com/open-star')
+                            img(style='position: absolute; top: 0; right: 0; border: 0;', src='https://camo.githubusercontent.com/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67', alt='Fork me on GitHub', data-canonical-src='https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png')
+
+                    // Collect the nav links, forms, and other content for toggling
+                    #bs-example-navbar-collapse-1.collapse.navbar-collapse
+                        ul.nav.navbar-nav.navbar-right
+                            li
+                                a(href='#information') お知らせ
+                            li
+                                a(href='#about') Wmonsinとは
+                            li
+                                a(href='#features') 特徴
+                            li
+                                a(href='#screens') 画面
+                            //li
+                                a(href='/articles') 価格
+                            li
+                                a(href='/privacy') プライバシーポリシー
+                            li
+                                a(href='/law') 法に基づく表示
+                            //li
+                                a(href='#demo') デモ
+                            //li
+                                a(href='#reviews') レビュー
+                            li
+                                a(href='#support') お問い合わせ
+                    // /.navbar-collapse
+                // /.container
+            // RevSlider
+
+            .tp-banner-container
+                .tp-banner
+                    ul
+                        // SLIDE
+                        li(data-transition='fade', data-slotamount='7', data-masterspeed='1500')
+                            // MAIN IMAGE
+                            img(src='img/transparent.png', alt='slidebg1', data-bgfit='cover', data-bgposition='left top', data-bgrepeat='no-repeat')
+                            // LAYERS
+                            // LAYER NR. 1
+                            .tp-caption.lfl.fadeout.hidden-xs(data-x='left', data-y='bottom', data-hoffset='30', data-voffset='0', data-speed='500', data-start='700', data-easing='Power4.easeOut')
+                                img(src='img/freeze/Slides/hand-freeze.png', alt='')
+                            .tp-caption.lfl.fadeout.visible-xs(data-x='left', data-y='center', data-hoffset='700', data-voffset='0', data-speed='500', data-start='700', data-easing='Power4.easeOut')
+                                img(src='img/freeze/iphone-freeze.png', alt='')
+                            .tp-caption.large_white_bold.sft(data-x='550', data-y='center', data-hoffset='0', data-voffset='-80', data-speed='500', data-start='1200', data-easing='Power4.easeOut')
+                                | OpenStar
+                            .tp-caption.large_white_light.sfr(data-x='770', data-y='center', data-hoffset='0', data-voffset='-80', data-speed='500', data-start='1400', data-easing='Power4.easeOut')
+                                | a
+                            .tp-caption.large_white_light.sfb(data-x='550', data-y='center', data-hoffset='0', data-voffset='0', data-speed='1000', data-start='1500', data-easing='Power4.easeOut')
+                                | WEB問診票
+                            .tp-caption.sfb.hidden-xs(data-x='550', data-y='center', data-hoffset='0', data-voffset='85', data-speed='1000', data-start='1700', data-easing='Power4.easeOut')
+                                a.btn.btn-primary.inverse.btn-lg(href='#about') もっと見る
+
+                        // SLIDE 2
+                        li(data-transition='zoomout', data-slotamount='7', data-masterspeed='1000')
+                            // MAIN IMAGE
+                            img(src='img/transparent.png', alt='slidebg1', data-bgfit='cover', data-bgposition='left top', data-bgrepeat='no-repeat')
+                            // LAYERS
+                            // LAYER NR. 1
+                            .tp-caption.lfb.fadeout.hidden-xs(data-x='center', data-y='bottom', data-hoffset='0', data-voffset='0', data-speed='1000', data-start='700', data-easing='Power4.easeOut')
+                                img(src='img/freeze/Slides/freeze-slide2.png', alt='')
+                            .tp-caption.large_white_light.sft(data-x='center', data-y='250', data-hoffset='0', data-voffset='0', data-speed='1000', data-start='1400', data-easing='Power4.easeOut')
+                                | WEB問診票とは
+                        // SLIDE 3
+                        li(data-transition='zoomout', data-slotamount='7', data-masterspeed='1000')
+                            // MAIN IMAGE
+                            img(src='img/transparent.png', alt='slidebg1', data-bgfit='cover', data-bgposition='left top', data-bgrepeat='no-repeat')
+                            // LAYERS
+                            // LAYER NR. 1
+                            .tp-caption.customin.customout.hidden-xs(data-x='right', data-y='center', data-hoffset='0', data-customin='x:50;y:150;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.5;scaleY:0.5;skewX:0;skewY:0;opacity:0;transformPerspective:0;transformOrigin:50% 50%;', data-customout='x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;', data-voffset='50', data-speed='1000', data-start='700', data-easing='Power4.easeOut')
+                                img(src='img/freeze/Slides/family-freeze.png', alt='')
+                            .tp-caption.customin.customout.visible-xs(data-x='center', data-y='center', data-hoffset='0', data-customin='x:50;y:150;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.5;scaleY:0.5;skewX:0;skewY:0;opacity:0;transformPerspective:0;transformOrigin:50% 50%;', data-customout='x:0;y:0;z:0;rotationX:0;rotationY:0;rotationZ:0;scaleX:0.75;scaleY:0.75;skewX:0;skewY:0;opacity:0;transformPerspective:600;transformOrigin:50% 50%;', data-voffset='0', data-speed='1000', data-start='700', data-easing='Power4.easeOut')
+                                img(src='img/freeze/Slides/family-freeze.png', alt='')
+                            //.tp-caption.lfb.visible-xs(data-x='center', data-y='center', data-hoffset='0', data-voffset='400', data-speed='1000', data-start='1200', data-easing='Power4.easeOut')
+                              a.btn.btn-primary.inverse.btn-lg(href='#') Purchase
+                            .tp-caption.mediumlarge_light_white.sfl.hidden-xs(data-x='left', data-y='center', data-hoffset='200', data-voffset='-50', data-speed='1000', data-start='1000', data-easing='Power4.easeOut')
+                                |         問診票システム
+                            .tp-caption.mediumlarge_light_white.sft.hidden-xs(data-x='left', data-y='center', data-hoffset='200', data-voffset='0', data-speed='1000', data-start='1200', data-easing='Power4.easeOut')
+                                |         WEB問診票システムは
+                            .tp-caption.small_light_white.sfb.hidden-xs(data-x='left', data-y='center', data-hoffset='200', data-voffset='80', data-speed='1000', data-start='1600', data-easing='Power4.easeOut')
+                                div
+                                    | オープンソースのタブレット対応問診票Webアプリ。ライセンスは、MIT License
+                                    br
+                                    | Webアプリの新しい基盤環境MEANスタックを使って開発。
+                                    br
+                                    | クラウド対応、手間いらずです。
+                                    br
+                                    | 7th-codeが開発、（株）オープンスターが保守、サポートサービスを販売します。
+                            //.tp-caption.lfl.hidden-xs(data-x='left', data-y='center', data-hoffset='0', data-voffset='160', data-speed='1000', data-start='1800', data-easing='Power4.easeOut')
+                              a.btn.btn-primary.inverse.btn-lg(href='#') Purchase
+
+
+        .wrapper
+            section#information
+                .container
+                    .section-heading.scrollpoint.sp-effect3
+                        h1 お知らせ
+                        .divider
+                        p アルファ版で公開しています。2015年3月にはベータ版、4月には正式版として公開する予定です。
+                        p テスト運用にご協力頂ける医療機関様を募集しております。お気軽にお問い合わせ下さい。
+            section#about
+                .container
+                    .section-heading.scrollpoint.sp-effect3
+                        h1 Wmonsinとは - WEB問診票
+                        .divider
+                        br
+                        h2
+                            p オープンソースのタブレット対応問診票Webアプリ。
+                            p ライセンスは、MIT License.
+                            p Webアプリの新しい基盤環境MEANスタックを使って開発。
+                            p クラウド対応、手間いらずです。
+                            br
+                            p(style="font-size:18px") 7thCodeが開発、(株)オープンスターが保守、サポートを担当。
+                    //.row
+                        .col-md-4.col-sm-4.col-xs-6
+                            .about-item.scrollpoint.sp-effect2
+                                i.fa.fa-smile-o.fa-2x
+                                h3 OSS（オープンソースソフトウェア）
+                                p
+                                | 誰でも自由に使うことができます。ライセンスは、MIT License。
+                        .col-md-4.col-sm-4.col-xs-6
+                            .about-item.scrollpoint.sp-effect5
+                                i.fa.fa-rocket.fa-2x
+                                h3 MEANスタックを使用
+                                p
+                                | Webアプリの新しい基盤環境MEANスタックを使って開発。
+                        .col-md-4.col-sm-4.col-xs-6
+                            .about-item.scrollpoint.sp-effect5
+                                i.fa.fa-plus-circle.fa-2x
+                                h3 Google マテリアルデザインに準拠
+                                p
+                                | 見た目だけではなく使い勝手までも意識してデザインされています。
+                        .col-md-4.col-sm-4.col-xs-6
+                            .about-item.scrollpoint.sp-effect5
+                                i.fa.fa-cloud-download.fa-2x
+                                h3 Dockerを使用
+                                p
+                                | Dockerを使って本システムを迅速に提供します。
+                        .col-md-4.col-sm-4.col-xs-6
+                            .about-item.scrollpoint.sp-effect5
+                                i.fa.fa-refresh.fa-2x
+                                h3 画面自動同期（手動による画面の再読み込み不要）
+                                p
+                                | 患者を受け付けた瞬間や問診が終了した瞬間に画面が同期されます。
+                        .col-md-4.col-sm-4.col-xs-6
+                            .about-item.scrollpoint.sp-effect5
+                                i.fa.fa-exchange.fa-2x
+                                h3 全てのメーカーの電子カルテへ問診結果が渡せる
+                                p
+                                | 問診結果をカルテにコピペする方式により、全てのメーカーの電子カルテに問診結果が渡せます。
+                        .col-md-4.col-sm-4.col-xs-6
+                            .about-item.scrollpoint.sp-effect5
+                                i.fa.fa-tablet.fa-2x
+                                h3
+                                p
+                                | 推奨：　iPad mini 、Nexus 7 等の7inch タブレット
+
+                        .col-md-4.col-sm-4.col-xs-6
+                            .about-item.scrollpoint.sp-effect5
+                                i.fa.fa-users.fa-2x
+                                h3 日レセと連動
+                                p
+                                | 標準で、日医標準レセプトソフトの受付情報を取得します。
+                        .col-md-4.col-sm-4.col-xs-6
+                            .about-item.scrollpoint.sp-effect5
+                                i.fa.fa-tachometer.fa-2x
+                                h3 自動連携用API（開発中）
+                                p
+                                | レセコン、電子カルテとの自動連携用APIを公開します。
+                        .col-md-4.col-sm-4.col-xs-6
+                            .about-item.scrollpoint.sp-effect5
+                                i.fa.fa-pencil-square-o.fa-2x
+                                h3 問診内容編集が簡単！
+                                p
+                                | スタッフが簡単に問診内容の追加、変更、削除をする事ができます。
+            section#features
+                .container
+                    .section-heading.scrollpoint.sp-effect3
+                        h1 特徴
+                        .divider
+                        p Wmonsinには以下のような特徴があります
+                    .row
+                        .col-md-4.col-sm-4.scrollpoint.sp-effect1
+                            .media.media-left.feature
+                                a.pull-right(href='#')
+                                    i.fa.fa-smile-o.fa-2x
+                                .media-body
+                                    h3.media-heading  OSS（オープンソースソフトウェア）
+                                    | 誰でも自由に使うことができます。ライセンスは、MIT License。
+                            .media.media-left.feature
+                                a.pull-right(href='#')
+                                    i.fa.fa-rocket.fa-2x
+                                .media-body
+                                    h3.media-heading MEANスタックを使用
+                                    |                                 Webアプリの新しい基盤環境MEANスタックを使って開発。
+                            .media.media-left.feature
+                                a.pull-right(href='#')
+                                    i.fa.fa-plus-circle.fa-2x
+                                .media-body
+                                    h3.media-heading Google マテリアルデザインに準拠
+                                    |                                 見た目だけではなく使い勝手までも意識してデザインされています。
+                            .media.media-left.feature
+                                a.pull-right(href='#')
+                                    i.fa.fa-cloud-download.fa-2x
+                                .media-body
+                                    h3.media-heading Dockerを使用
+                                    |                                 Dockerを使って本システムを迅速に提供します。
+                            .media.media-left.feature
+                                a.pull-right(href='#')
+                                    i.fa.fa-calendar.fa-2x
+                                .media-body
+                                    h3.media-heading 複数の診療科
+                                    |                                 診療科や診療内容別に複数の問診票を使用可能です。
+                        //.col-md-4.col-sm-4.scrollpoint.sp-effect1
+                            .media.media-left.feature
+                                a.pull-right(href='#')
+                                    i.fa.fa-smile-o.fa-2x
+                                .media-body
+                                    h3 OSS（オープンソースソフトウェア）
+                                    | 誰でも自由に使うことができます。ライセンスは、MIT License。
+                            .media.media-left.feature
+                                a.pull-right(href='#')
+                                    i.fa.fa-envelope.fa-2x
+                                .media-body
+                                    h3.media-heading カスタマイズ
+                                    |                                 問診票をご自分でカスタマイズできます。
+                            .media.media-left.feature
+                                a.pull-right(href='#')
+                                    i.fa.fa-users.fa-2x
+                                .media-body
+                                    h3.media-heading シエーマもタッチ入力
+                                    |                                 問診票は全てタッチ入力。
+                            .media.media-left.feature
+                                a.pull-right(href='#')
+                                    i.fa.fa-comments.fa-2x
+                                .media-body
+                                    h3.media-heading PDF出力
+                                    |                                 問診結果はPDFに出力可能です。
+                            .media.media-left.feature
+                                a.pull-right(href='#')
+                                    i.fa.fa-calendar.fa-2x
+                                .media-body
+                                    h3.media-heading 複数の診療科
+                                    |                                 診療科や診療内容別に複数の問診票を使用可能です。
+                        .col-md-4.col-sm-4
+                            img.img-responsive.scrollpoint.sp-effect5(src='img/freeze/iphone-freeze.png',style="margin-left:auto;margin-right:auto;", alt='')
+                        .col-md-4.col-sm-4.scrollpoint.sp-effect2
+                            .media.feature
+                                a.pull-left(href='#')
+                                    i.fa.fa-refresh.fa-2x
+                                .media-body
+                                    h3.media-heading 画面自動同期（手動による画面の再読み込み不要）
+                                    |                                 患者を受け付けた瞬間や問診が終了した瞬間に画面が同期されます。
+                            .media.feature
+                                a.pull-left(href='#')
+                                    i.fa.fa-exchange.fa-2x
+                                .media-body
+                                    h3.media-heading 全てのメーカーの電子カルテへ問診結果が渡せる
+                                    |                                 問診結果をカルテにコピペする方式により、全てのメーカーの電子カルテに問診結果が渡せます。
+                            .media.feature
+                                a.pull-left(href='#')
+                                    i.fa.fa-tablet.fa-2x
+                                .media-body
+                                    h3.media-heading 動作環境
+                                    |                推奨：　iPad mini 、Nexus 7 等の7inch タブレット
+                            .media.feature
+                                a.pull-left(href='#')
+                                    i.fa.fa-users.fa-2x
+                                .media-body
+                                    h3.media-heading 日レセと連動
+                                    |                                 標準で、日医標準レセプトソフトの受付情報を取得します。
+                            .media.active.feature
+                                a.pull-left(href='#')
+                                    i.fa.fa-pencil-square-o.fa-2x
+                                .media-body
+                                    h3.media-heading 問診内容編集が簡単！
+                                    |                                 スタッフが簡単に問診内容の追加、変更、削除をする事ができます。
+                        //.col-md-4.col-sm-4.scrollpoint.sp-effect2
+                            .media.feature
+                                a.pull-left(href='#')
+                                    i.fa.fa-map-marker.fa-2x
+                                .media-body
+                                    h3.media-heading 管理不要
+                                    |                                 お役様側での管理は不要です。
+                            .media.feature
+                                a.pull-left(href='#')
+                                    i.fa.fa-film.fa-2x
+                                .media-body
+                                    h3.media-heading コンフィグレーション
+                                    |                                 暗号、データベース等の設定はユーザのお好みで。
+                            .media.feature
+                                a.pull-left(href='#')
+                                    i.fa.fa-compass.fa-2x
+                                .media-body
+                                    h3.media-heading リロード不要
+                                    |                                 患者を受け付けた瞬間や問診が終了した瞬間、画面が同期されます。
+                            .media.feature
+                                a.pull-left(href='#')
+                                    i.fa.fa-picture-o.fa-2x
+                                .media-body
+                                    h3.media-heading TODO
+                                    |                                 todo
+                            .media.active.feature
+                                a.pull-left(href='#')
+                                    i.fa.fa-plus.fa-2x
+                                .media-body
+                                    h3.media-heading その他いろいろ！
+                                    |                                 その他の機能も.
+
+            section#screens
+                .container
+                    .section-heading.scrollpoint.sp-effect3
+                        h1 画面
+                        .divider
+                        p Wmonsinは、カスタマイズ可能な問診票です。
+                    .filter.scrollpoint.sp-effect3
+                        a.button.js-filter-all.active(href='javascript:void(0)') 全て
+                        a.button.js-filter-one(href='javascript:void(0)') ユーザ
+                        a.button.js-filter-two(href='javascript:void(0)') 問診票
+                        a.button.js-filter-three(href='javascript:void(0)') 問診票編集
+                    .slider.filtering.scrollpoint.sp-effect5
+                        .one
+                            img(src='img/freeze/screens/stuff2.png', alt='')
+                            h4 ユーザ登録
+                        .two
+                            img(src='img/freeze/screens/start.png', alt='')
+                            h4 メニュー
+                        .three
+                            img(src='img/freeze/screens/patient1.png', alt='')
+                            h4 問診結果
+                        .one
+                            img(src='img/freeze/screens/stuff1.png', alt='')
+                            h4 スタッフ
+                        .one
+                            img(src='img/freeze/screens/inquiry3.png', alt='')
+                            h4 問診票
+                        .two
+                            img(src='img/freeze/screens/inquiry2.png', alt='')
+                            h4 問診票
+                        .three
+                            img(src='img/freeze/screens/patient3.png', alt='')
+                            h4 問診結果
+            //section#demo
+                .container
+                    .section-heading.scrollpoint.sp-effect3
+                        h1 デモ
+                        .divider
+                        p こんな使い方ができます。
+                    .row
+                        .col-md-8.col-md-offset-2.scrollpoint.sp-effect2
+                            .video-container
+                                iframe(src='http://player.vimeo.com/video/70984663')
+
+
+            //section#reviews
+                .container
+                    .section-heading.inverse.scrollpoint.sp-effect3
+                        h1 使っています
+                        .divider
+                        p Wmonsinをs使った先生の感想
+                    .row
+                        .col-md-10.col-md-push-1.scrollpoint.sp-effect3
+                            .review-filtering
+                                .review
+                                    .row
+                                        .col-md-2
+                                            .review-person
+                                                img.img-responsive(src='http://api.randomuser.me/portraits/women/94.jpg', alt='')
+                                        .col-md-10
+                                            .review-comment
+                                                h3 “Wmonsin良い”
+                                                p
+                                                    | - ほげ
+                                                    span
+                                                        i.fa.fa-star.fa-lg
+                                                        i.fa.fa-star.fa-lg
+                                                        i.fa.fa-star.fa-lg
+                                                        i.fa.fa-star.fa-lg
+                                                        i.fa.fa-star-o.fa-lg
+                                .review.rollitin
+                                    .row
+                                        .col-md-2
+                                            .review-person
+                                                img.img-responsive(src='http://api.randomuser.me/portraits/men/70.jpg', alt='')
+                                        .col-md-10
+                                            .review-comment
+                                                h3 “良い”
+                                                p
+                                                    | - ゲホ
+                                                    span
+                                                        i.fa.fa-star.fa-lg
+                                                        i.fa.fa-star.fa-lg
+                                                        i.fa.fa-star.fa-lg
+                                                        i.fa.fa-star-half-o.fa-lg
+                                                        i.fa.fa-star-o.fa-lg
+                                .review.rollitin
+                                    .row
+                                        .col-md-2
+                                            .review-person
+                                                img.img-responsive(src='http://api.randomuser.me/portraits/men/93.jpg', alt='')
+                                        .col-md-10
+                                            .review-comment
+                                                h3 “とってもいい(^_^)”
+                                                p
+                                                    | - ピヨ
+                                                    span
+                                                        i.fa.fa-star.fa-lg
+                                                        i.fa.fa-star.fa-lg
+                                                        i.fa.fa-star.fa-lg
+                                                        i.fa.fa-star-half-o.fa-lg
+                                                        i.fa.fa-star-o.fa-lg
+
+
+            section#oss
+                .container
+                    .section-heading.scrollpoint.sp-effect3
+                        h1 OSS
+                        .divider
+                        p 日本の医療情報システムの発展のため、本プログラムは、OSSとしソースコードを公開します。
+                        p MIT License.GitHubで公開,下記よりソースコードが取得できます。
+                        h3
+                            a(href="https://github.com/open-star") https://github.com/open-star
+                        br
+                        br
+                        br
+                        p DockerHubでコンテナイメージを公開
+                        p 下記でw-monsin のコンテナイメージを公開しています。
+                        h3
+                            a(href="https://hub.docker.com/r/openstar/") https://hub.docker.com/r/openstar/
+
+
+            section#support.doublediagonal
+                .container
+                    .section-heading.scrollpoint.sp-effect3
+                        h1 お問い合わせ
+                        .divider
+                        p お問い合わせはこちらから
+                    .row
+                        .col-md-12
+                            .row
+                                .col-md-8.col-sm-8.scrollpoint.sp-effect1
+                                    //form(method="POST", action="mailto:contact@openstar.biz")
+                                        .form-group
+                                            input.form-control(type='text',name="name", placeholder='Your name')
+                                        .form-group
+                                            input.form-control(type='email',name='email', placeholder='Your email')
+                                        .form-group
+                                            textarea.form-control(type='text',name="body", cols='30', rows='10', placeholder='Your message')
+
+                                        button.btn.btn-primary.btn-lg(type='submit') Submit
+
+                                    form#contact-form(role='form', name="validate")
+                                            .form-group
+                                                label(for='c_name') Name
+                                                input#c_name.form-control(type='text', ng-model="name", name='c_name', placeholder='Name', style="color:black;")
+                                            .form-group
+                                                label(for='c_email') Email
+                                                input#c_email.form-control(type='email',ng-model="email", name='c_email', placeholder='E-mail', style="color:black;" required)
+                                                div(ng-messages="validate.c_email.$error")
+                                                    div(ng-message="required") メールアドレスは必須です
+
+                                            .form-group
+                                                label(for='c_message') Message
+                                                textarea#c_message.form-control(ng-model="message", name='c_message', rows='7', placeholder='Message', style="color:black;")
+                                            button.btn.btn-primary.btn-lg(ng-click="send();", ng-disabled="validate.c_email.$invalid") Send Message
+                                            span(style="margin-left:100px;") {{errormessage}}
+
+                                .col-md-4.col-sm-4.contact-details.scrollpoint.sp-effect2
+                                    .media
+                                        a.pull-left(href='#')
+                                            i.fa.fa-map-marker.fa-2x
+                                        .media-body
+                                            h6.media-heading 大阪市中央区備後町3-6-2 大雅ビル10F-109
+                                            | (株) OPEN
+                                            i.fa.fa-star(style="border:none;padding: 0;")
+                                            | STAR
+                                    .media
+                                        a.pull-left(href="mailto:contact@openstar.biz")
+                                            i.fa.fa-envelope.fa-2x
+                                        .media-body
+                                            h4.media-heading
+                                                a(href="mailto:contact@openstar.biz") contact@openstar.biz
+                                    .media
+                                        a.pull-left(href='tel:0661237056')
+                                            i.fa.fa-phone.fa-2x
+                                        .media-body
+                                            h4.media-heading
+                                                a.pull-left(href='tel:0661237056') 06-6123-7056
+            footer
+                .container
+
+                    .row
+                        .col-sm-10.col-sm-offset-1
+
+                                            div(style="margin-bottom:20px;")
+                                                a(href='https://www.facebook.com/OpenStar60/', target='_blank')
+                                                    img(src="/img/facebook_logo.svg", style="height:18px")
+                                                div(style="width:100px;margin-left:auto;margin-right:auto;margin-top:10px;")
+
+                    .row
+                        .col-sm-10.col-sm-offset-1(style="padding:0;")
+                            .social-area-syncer
+                                row.social-button-syncer
+                                    col-sm-4.sc-tw(style="margin:10px;")
+                                        a.twitter-share-button(data-url='http://w-monsin.com', href='https://twitter.com/share', data-lang='ja', data-count='vertical', data-dnt='true') ツイート
+                                    col-sm-4.sc-fb(style="margin:10px;")
+                                        .fb-like(data-href='http://w-monsin.com', data-layout='box_count', data-action='like', data-show-faces='true', data-share='false')
+                                    col-sm-4(style="margin:10px;")
+                                        div(data-href="http://w-monsin.com", class="g-plusone", data-size="tall")
+
+                    //.social
+                        a.scrollpoint.sp-effect3(href='#')
+                            i.fa.fa-twitter.fa-lg
+                        a.scrollpoint.sp-effect3(href='#')
+                            i.fa.fa-google-plus.fa-lg
+                        a.scrollpoint.sp-effect3(href='#')
+                            i.fa.fa-facebook.fa-lg
+

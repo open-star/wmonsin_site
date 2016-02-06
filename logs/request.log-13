@@ -1,0 +1,35 @@
+[2016-01-13 21:04:55.954] [INFO] request - -----------------------Invoke---------------------
+[2016-01-13 21:04:55.958] [INFO] request - log4js Ok.
+[2016-01-13 21:04:55.959] [INFO] request - logger Ok.
+[2016-01-13 21:04:55.959] [INFO] request - express Ok.
+[2016-01-13 21:04:55.959] [INFO] request - fs Ok.
+[2016-01-13 21:04:55.959] [INFO] request - config Ok.
+[2016-01-13 21:04:55.959] [INFO] request - path Ok.
+[2016-01-13 21:04:55.994] [INFO] request - favicon Ok.
+[2016-01-13 21:04:56.013] [INFO] request - cookieParser Ok.
+[2016-01-13 21:04:56.025] [INFO] request - bodyParser Ok.
+[2016-01-13 21:04:56.126] [INFO] request - passport Ok.
+[2016-01-13 21:04:56.139] [INFO] request - LocalStrategy Ok.
+[2016-01-13 21:04:56.249] [INFO] request - FacebookStrategy Ok.
+[2016-01-13 21:04:56.421] [INFO] request - session Ok.
+[2016-01-13 21:34:15.813] [INFO] request - -----------------------Invoke---------------------
+[2016-01-13 21:34:19.144] [INFO] request - routes Ok.
+[2016-01-13 21:34:15.816] [INFO] request - log4js Ok.
+[2016-01-13 21:34:19.145] [INFO] request - Jade Start.
+[2016-01-13 21:34:15.816] [INFO] request - logger Ok.
+[2016-01-13 21:34:19.260] [INFO] request - mongoose Ok.
+[2016-01-13 21:34:15.817] [INFO] request - express Ok.
+[2016-01-13 21:34:19.516] [INFO] request - MongoStore Ok.
+[2016-01-13 21:34:15.817] [INFO] request - fs Ok.
+[2016-01-13 21:34:19.516] [INFO] request - mongodb://localhost/wmonsin-site
+[2016-01-13 21:34:15.817] [INFO] request - config Ok.
+[2016-01-13 21:34:19.554] [INFO] request - Access Log OK.
+[2016-01-13 21:34:15.817] [INFO] request - path Ok.
+[2016-01-13 21:34:19.555] [INFO] request - Account Ok.
+[2016-01-13 21:34:15.855] [INFO] request - favicon Ok.
+[2016-01-13 21:34:15.937] [INFO] request - cookieParser Ok.
+[2016-01-13 21:34:15.946] [INFO] request - bodyParser Ok.
+[2016-01-13 21:34:16.036] [INFO] request - passport Ok.
+[2016-01-13 21:34:16.070] [INFO] request - LocalStrategy Ok.
+[2016-01-13 21:34:16.199] [INFO] request - FacebookStrategy Ok.
+[2016-01-13 21:34:16.709] [INFO] request - session Ok.

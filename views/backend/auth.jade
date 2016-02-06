@@ -1,0 +1,22 @@
+extends layout.jade
+
+block content
+   body(ng-app="BackendApplication", ng-controller="LoginController")
+      md-content.background(ng-controller="ArticleController")
+         md-toolbar
+            .md-toolbar-tools
+               if !user
+                  div
+                     md-button(ng-click='showRegisterDialog()') Reg
+                     md-button(ng-click="showLoginDialog()") Login
+               if user
+                  if provider == "local"
+                     md-button(ng-click="showPasswordDialog()") Pass
+                     md-button(ng-click='Logout()') logout
+                  else
+                     md-button(ng-click='Logout()') logout
+
+         md-card.box-edge(ng-controller="ExperimentQueryController")
+            div(ng-repeat="experiment in experiments")
+                  div {{experiment.name}}
+                  div {{experiment.email}}

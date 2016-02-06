@@ -1,0 +1,62 @@
+{
+  "state": "deveropment",
+  "loglevel": "TRACE",
+  "domain": "localhost:3000",
+  "dbuser": "oda",
+  "dbpassword": "zz0101",
+  "dbaddress": "localhost",
+  "dbname": "wmonsin-site",
+  "user": "root@root",
+  "password": "root77",
+
+  "sessionname": "wmonsin-site",
+  "sessionsecret": "Daisy, Daisy.",
+
+  "tokensecret": "Yes We therefore I think we",
+  "key2": "Man is a thinking reed",
+
+  "facebook": {
+    "clientID": "1676184429271661",
+    "clientSecret": "f3a9ad16cf0d73cd38dfc3aa0843c2fe",
+    "callbackURL": "http://localhost:3000/auth/facebook/callback"
+  },
+
+  "mailaccount": "contact@openstar.biz",
+  "mailsetting": {
+    "host": "star8.sakura.ne.jp",
+    "port": "587",
+    "auth": {
+      "user": "contact@openstar.biz",
+      "pass": "bingo362"
+
+    }
+  },
+  "analyticsid": "UA-37171600-4",
+
+  "registmailsubject": "承ります。",
+  "registmailreader": "<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>",
+  "maillink": "認証",
+  "registmailtrailer": "<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>",
+
+  "passmailsubject": "パスワード変更",
+  "passmailreader": "パスワードを変更します",
+  "passmailtrailer": "パスワード",
+
+  "inquirymailsubject": "お問い合わせ承ります。",
+  "inquirymailreader": "<br/>",
+  "inquirymaillink": "リンク",
+  "inquirymailtrailer": "<br/>",
+
+
+  "sendconfirm": "認証用のメール。",
+  "usernamealreadyregist": "同じユーザ名が登録されています。",
+  "usernamenotfound": "ユーザ名が登録されていません。",
+  "mailerror": "メールエラー.",
+  "wrongusername": "ユーザ名かパスワードが違っています。",
+
+  "meta":{
+    "title":"",
+    "keywords":"",
+    "description":""
+  }
+}

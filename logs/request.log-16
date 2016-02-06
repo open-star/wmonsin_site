@@ -1,0 +1,76 @@
+[2016-01-16 15:48:36.305] [INFO] request - -----------------------Invoke---------------------
+[2016-01-16 15:48:36.309] [INFO] request - log4js Ok.
+[2016-01-16 15:48:36.309] [INFO] request - logger Ok.
+[2016-01-16 15:48:36.310] [INFO] request - express Ok.
+[2016-01-16 15:48:36.310] [INFO] request - fs Ok.
+[2016-01-16 15:48:36.310] [INFO] request - config Ok.
+[2016-01-16 15:48:36.310] [INFO] request - path Ok.
+[2016-01-16 15:48:36.345] [INFO] request - favicon Ok.
+[2016-01-16 15:48:36.362] [INFO] request - cookieParser Ok.
+[2016-01-16 15:48:36.377] [INFO] request - bodyParser Ok.
+[2016-01-16 15:48:36.478] [INFO] request - passport Ok.
+[2016-01-16 15:48:36.514] [INFO] request - LocalStrategy Ok.
+[2016-01-16 15:48:36.676] [INFO] request - FacebookStrategy Ok.
+[2016-01-16 15:48:36.827] [INFO] request - session Ok.
+[2016-01-16 15:52:27.082] [INFO] request - -----------------------Invoke---------------------
+[2016-01-16 15:52:27.715] [INFO] request - routes Ok.
+[2016-01-16 15:52:27.085] [INFO] request - log4js Ok.
+[2016-01-16 15:52:27.716] [INFO] request - Jade Start.
+[2016-01-16 15:52:27.085] [INFO] request - logger Ok.
+[2016-01-16 15:52:27.752] [INFO] request - mongoose Ok.
+[2016-01-16 15:52:27.085] [INFO] request - express Ok.
+[2016-01-16 15:52:27.838] [INFO] request - MongoStore Ok.
+[2016-01-16 15:52:27.085] [INFO] request - fs Ok.
+[2016-01-16 15:52:27.838] [INFO] request - mongodb://localhost/wmonsin-site
+[2016-01-16 15:52:27.086] [INFO] request - config Ok.
+[2016-01-16 15:52:27.853] [INFO] request - Access Log OK.
+[2016-01-16 15:52:27.086] [INFO] request - path Ok.
+[2016-01-16 15:52:27.854] [INFO] request - Account Ok.
+[2016-01-16 15:52:27.090] [INFO] request - favicon Ok.
+[2016-01-16 15:52:27.094] [INFO] request - cookieParser Ok.
+[2016-01-16 15:52:27.098] [INFO] request - bodyParser Ok.
+[2016-01-16 15:52:27.114] [INFO] request - passport Ok.
+[2016-01-16 15:52:27.118] [INFO] request - LocalStrategy Ok.
+[2016-01-16 15:52:27.142] [INFO] request - FacebookStrategy Ok.
+[2016-01-16 15:52:27.173] [INFO] request - session Ok.
+[2016-01-16 15:52:55.249] [FATAL] request - /Users/oda/project/webstorm/wmonsin_site/views/articles.jade:115
+    113|                                     blockquote(cite='https://www.facebook.com/jumeirahoasis')
+    114|                                         a(href='#{content.descriptions.link.facebook}') OpenStar
+  > 115| 
+
+Cannot read property 'descriptions' of undefined
+[2016-01-16 15:53:12.509] [FATAL] request - /Users/oda/project/webstorm/wmonsin_site/views/privacy.jade:143
+    141|                                     blockquote(cite='https://www.facebook.com/jumeirahoasis')
+    142|                                         a(href='#{content.descriptions.link.facebook}') OpenStar
+  > 143| 
+
+Cannot read property 'descriptions' of undefined
+[2016-01-16 15:54:37.030] [FATAL] request - /Users/oda/project/webstorm/wmonsin_site/views/law.jade:90
+    88|                                     blockquote(cite='https://www.facebook.com/jumeirahoasis')
+    89|                                         a(href='#{content.descriptions.link.facebook}') OpenStar
+  > 90| 
+
+Cannot read property 'descriptions' of undefined
+[2016-01-16 16:34:57.480] [INFO] request - SIGINT.
+[2016-01-16 16:35:00.890] [INFO] request - -----------------------Invoke---------------------
+[2016-01-16 16:35:02.785] [INFO] request - routes Ok.
+[2016-01-16 16:35:00.893] [INFO] request - log4js Ok.
+[2016-01-16 16:35:02.786] [INFO] request - Jade Start.
+[2016-01-16 16:35:00.893] [INFO] request - logger Ok.
+[2016-01-16 16:35:02.867] [INFO] request - mongoose Ok.
+[2016-01-16 16:35:00.894] [INFO] request - express Ok.
+[2016-01-16 16:35:03.104] [INFO] request - MongoStore Ok.
+[2016-01-16 16:35:00.894] [INFO] request - fs Ok.
+[2016-01-16 16:35:03.104] [INFO] request - mongodb://localhost/wmonsin-site
+[2016-01-16 16:35:00.894] [INFO] request - config Ok.
+[2016-01-16 16:35:03.118] [INFO] request - Access Log OK.
+[2016-01-16 16:35:00.894] [INFO] request - path Ok.
+[2016-01-16 16:35:03.119] [INFO] request - Account Ok.
+[2016-01-16 16:35:00.898] [INFO] request - favicon Ok.
+[2016-01-16 16:35:00.901] [INFO] request - cookieParser Ok.
+[2016-01-16 16:35:00.903] [INFO] request - bodyParser Ok.
+[2016-01-16 16:35:01.000] [INFO] request - passport Ok.
+[2016-01-16 16:35:01.015] [INFO] request - LocalStrategy Ok.
+[2016-01-16 16:35:01.078] [INFO] request - FacebookStrategy Ok.
+[2016-01-16 16:35:01.141] [INFO] request - session Ok.
+[2016-01-16 17:32:48.908] [INFO] request - SIGINT.

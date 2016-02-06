@@ -1,0 +1,49 @@
+div
+    .modal-header
+        .modal-title
+            h3 ご契約
+    .modal-body
+        ng-form(name="validate")
+
+            label(style="margin-bottom:10px;font-weight:bold;") メールアドレス
+            input.form-control(style="margin-bottom:10px;",ng-model='email', type='email', name='email', placeholder='name@domain', required, ng-maxlength="30", ng-pattern="/^[a-z0-9-._.+]+@[a-z0-9-]+(\.[a-z0-9-]+)*$/i")
+            div(ng-messages="validate.email.$error")
+                div.required(ng-message="required") 必須項目です。
+                div.red-messege(ng-message="pattern") メールアドレス形式ではありません。
+                div.red-messege(ng-message="maxlength") 30字以内にして下さい。
+
+            label(style="margin-bottom:10px;font-weight:bold;") カード番号
+            input.form-control(style="margin-bottom:10px;",ng-model='number', type='text', name='number', placeholder='xxxx-xxxx-xxxx-xxxx', required, ng-maxlength="19")
+            div(ng-messages="validate.number.$error")
+                div.required(ng-message="required") 必須項目です。
+                div.red-messege(ng-message="maxlength") 19字以内にして下さい。
+
+            label(style="margin-bottom:10px;font-weight:bold;") 有効期限(月)
+            input.form-control(style="margin-bottom:10px;",ng-model='exp_month', type='text', name='exp_month', placeholder='xx', required, ng-maxlength="2")
+            div(ng-messages="validate.exp_month.$error")
+                div.required(ng-message="required") 必須項目です。
+                div.red-messege(ng-message="maxlength") 2字以内にして下さい。
+
+            label(style="margin-bottom:10px;font-weight:bold;")  有効期限(年)
+            input.form-control(style="margin-bottom:10px;",ng-model='exp_year', type='text', name='exp_year', placeholder='xxxx', required, ng-maxlength="4")
+            div(ng-messages="validate.exp_year.$error")
+                div.required(ng-message="required") 必須項目です。
+                div.red-messege(ng-message="maxlength") 4字以内にして下さい。
+
+            label(style="margin-bottom:10px;font-weight:bold;") cvc
+            input.form-control(style="margin-bottom:10px;",ng-model='cvc', type='text', name='cvc', placeholder='xxx', required, ng-maxlength="3")
+            div(ng-messages="validate.cvc.$error")
+                div.required(ng-message="required") 必須項目です。
+                div.red-messege(ng-message="maxlength") 3字以内にして下さい。
+
+            label(style="margin-bottom:10px;font-weight:bold;")  お名前
+            input.form-control(style="margin-bottom:10px;",ng-model='name', type='text', name='name', placeholder='TARO YAMADA', required, ng-maxlength="30")
+            div(ng-messages="validate.name.$error")
+                div.required(ng-message="required") 必須項目です。
+                div.red-messege(ng-message="maxlength") 30字以内にして下さい。
+
+    .modal-footer
+        .row
+            button.btn.btn-default.btn-sm(ng-click='ok()', ng-disabled="validate.$invalid || progress", aria-label="OK") 会員登録
+            button.btn.btn-warning.btn-sm(ng-click='cancel()', aria-label="Cancel") キャンセル
+        div(style="text-align:center;font-size:13px;margin-top:10px;font-weight:bold;") {{errormessage}}

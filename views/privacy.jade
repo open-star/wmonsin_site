@@ -1,0 +1,141 @@
+extends layout
+
+block content
+
+    .pre-loader
+        .load-con
+            img.animated.fadeInDown(src='img/freeze/logo.png', alt='')
+            .spinner
+                .bounce1
+                .bounce2
+                .bounce3
+    header
+        nav.navbar.navbar-default.navbar-fixed-top(role='navigation')
+            .container
+                // Brand and toggle get grouped for better mobile display
+                .navbar-header
+                    button.navbar-toggle(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1')
+                        span.fa.fa-bars.fa-lg
+                    a.navbar-brand(href='index.html')
+                        img.logo(src='img/openstar1.svg', alt='')
+                // Collect the nav links, forms, and other content for toggling
+                #bs-example-navbar-collapse-1.collapse.navbar-collapse
+                    ul.nav.navbar-nav.navbar-right
+                        li
+                            a(href="/") Home
+                        //li
+                            a(href='/articles') 価格
+                        li
+                            a(href='/law') 法に基づく表示
+                // /.navbar-collapse
+            // /.container
+        // RevSlider
+        div(style="height: 150px;")
+
+    .wrapper
+        section#privacy
+            .container
+                .section-heading.scrollpoint.sp-effect3
+                    h1 個人情報保護基本方針
+                    .divider
+                    .row
+                             .col-xs-12
+                                 div(style="border:20px;padding:10px;")
+                                    div(style="margin:20px;padding:20px;")
+                                        div (株)オープンスターでは、以下の個人情報保護基本方針（プライバシーポリシー）を定めます。お客様の個人情報を保護するために細心の注意を払っています。(株)オープンスターのサービス、商品を購入した場合、または本サイトのプレゼント・キャンペーン等に応募した場合、プライバシーポリシーに同意したものとみなされます。
+                                        div 本プライバシーポリシーの内容を熟読してご理解ください。
+                                    div(style="margin-top:50px;")
+                                        h2 個人情報の範囲
+                                        .divider
+                                        div.border(style="margin:20px;padding:20px;text-align:left;")
+                                            div 「個人情報」とは個人に関する情報です。その情報に含まれる氏名、生年月日、E メールアドレス、住所、電話番号、ファックス番号など、その個人を識別できるものを個人情報とします。
+                                    div(style="margin-top:50px;")
+                                        h2 個人情報の取得
+                                        .divider
+                                        div.border(style="margin:20px;padding:20px;text-align:left;")
+                                            div いくつかのサービスをご利用いただく際に、氏名、生年月日、Email アドレス、住所等の個人情報を収集させていただく場合があります。これらの情報は、すべて下記の収集目的に従って、適法かつ公正な手段により収集されます。
+                                    div(style="margin-top:50px;")
+                                        h2 個人情報の利用目的
+                                        .divider
+                                        div.border(style="margin:20px;padding:20px;text-align:left;")
+                                            | メールマガジン、ニュースレターなどをお届けするため
+                                            br
+                                            | ご注文の商品をお届けするため
+                                            br
+                                            | ダイレクトメール、ご案内をお届けするため
+                                            br
+                                            | お客様と連絡を取るため
+                                            br
+                                            | 個人情報の第三者への開示と免責事項
+                                            br
+                                            | (株)オープンスターでは、お客様からご提供頂きました個人情報は、以下のいずれかに該当する場合を除き、如何なる第三者にも開示致しません。
+                                            br
+                                            | お客様の同意がある場合
+                                            br
+                                            | 法令等により、関係機関より開示を求められた場合
+                                            br
+                                            | 上記のうちで、お客様個人を識別することができない状態で開示する場合
+                                            br
+                                            | 業務遂行に必要な限度で個人情報の取扱いを委託する場合
+                                    div(style="margin-top:50px;")
+                                        h2  個人データの共同利用
+                                        .divider
+                                        div.border(style="margin:20px;padding:20px;text-align:left;")
+                                            div
+                                            | (株)オープンスターでは、お客様の個人情報を、業務委託先等へ必要な範囲において開示する場合があります。
+                                            br
+                                            | 業務委託先等の開示とは、お届け物等の配送サービスを委託した会社等にお客様のお名前、宛先を知らせることがこれにあたります。
+                                    div(style="margin-top:50px;")
+                                        h2 個人情報の安全管理について
+                                        .divider
+                                        div.border(style="margin:20px;padding:20px;text-align:left;")
+                                            div
+                                            | お客様の個人情報の管理につきまして、(株)オープンスターでは、管理責任者を定め、適切な管理を行います。個人情報の外部への流出防止に努めます。
+                                            br
+                                            | 個人情報の不当なアクセスによる紛失、破壊、改ざん、漏洩などのリスクに対して、合理的かつ厳正な安全対策を講じます。
+                                            br
+                                            | 当方の責に帰すべからざる事由を原因とする個人情報の紛失、破壊、改ざん、漏洩などに関しては、当方では責任を負いかねますのでご注意ください。
+                                    div(style="margin-top:50px;")
+                                        h2 個人情報の変更、削除
+                                        .divider
+                                        div.border(style="margin:20px;padding:20px;text-align:left;")
+                                            div 当方に登録されているお客様の個人情報を変更、削除する場合は、当方サイト内に掲載しているお問い合わせフォームより、変更希望または削除希望の旨をご連絡ください。
+
+                                    div(style="margin-top:50px;")
+                                        h2 メルマガ等の配信停止
+                                        .divider
+                                        div.border(style="margin:20px;padding:20px;text-align:left;")
+                                            div 当方よりお送りされるお知らせ、DM等を停止する場合は、本サイトに掲載しているお問い合わせフォームより、配信停止の旨をご連絡ください。
+
+                                    div
+                                    | 2015年1月16日
+                                    br
+                                    | 株式会社オープンスター
+                                    br
+                                    | 代表取締役　星野 雅昭
+
+
+
+        footer
+            .container
+
+                .row
+                    .col-sm-10.col-sm-offset-1
+
+                        div(style="margin-bottom:20px;")
+                            a(href='https://www.facebook.com/OpenStar60/', target='_blank')
+                                img(src="/img/facebook_logo.svg", style="height:18px")
+                            div(style="width:100px;margin-left:auto;margin-right:auto;margin-top:10px;")
+
+                .row
+                    .col-sm-10.col-sm-offset-1(style="padding:0;")
+                        .social-area-syncer
+                            row.social-button-syncer
+                                col-sm-4.sc-tw(style="margin:10px;")
+                                    a.twitter-share-button(data-url='http://w-monsin.com', href='https://twitter.com/share', data-lang='ja', data-count='vertical', data-dnt='true') ツイート
+                                col-sm-4.sc-fb(style="margin:10px;")
+                                    .fb-like(data-href='http://w-monsin.com', data-layout='box_count', data-action='like', data-show-faces='true', data-share='false')
+                                col-sm-4(style="margin:10px;")
+                                    div(data-href="http://w-monsin.com", class="g-plusone", data-size="tall")
+
+

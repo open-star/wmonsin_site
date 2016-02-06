@@ -1,0 +1,45 @@
+{
+  "name": "public",
+  "version": "0.0.0",
+  "authors": [
+    "oda <oda.mikio@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.8",
+    "angular-animate": "~1.4.8",
+    "angular-aria": "~1.4.8",
+    "angular-cookies": "~1.4.8",
+    "angular-messages": "~1.4.8",
+    "angular-resource": "~1.4.8",
+    "angular-sanitize": "~1.4.8",
+    "angular-material": "~1.0.1",
+    "angular-material-icons": "~0.6.0",
+    "angular-ui-router": "~0.2.15",
+    "jquery": "~2.1.4",
+    "lodash": "~3.10.1",
+    "bootstrap": "~3.3.6",
+    "angular-bootstrap": "~0.13.4",
+    "angulartics": "~0.20.1",
+    "components-font-awesome": "~4.4.0",
+    "bootstrap-social": "~4.10.1",
+    "slick": "*",
+    "waypoints": "~4.0.0",
+    "placeholdem": "~1.0.2"
+
+  },
+  "devDependencies": {
+    "angular-mocks": "~1.4.7"
+  }
+}

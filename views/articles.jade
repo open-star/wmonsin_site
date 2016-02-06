@@ -1,0 +1,110 @@
+extends layout
+
+block content
+
+    .pre-loader
+        .load-con
+            img.animated.fadeInDown(src='img/freeze/logo.png', alt='')
+            .spinner
+                .bounce1
+                .bounce2
+                .bounce3
+    header
+        nav.navbar.navbar-default.navbar-fixed-top(role='navigation')
+            .container
+                // Brand and toggle get grouped for better mobile display
+                .navbar-header
+                    button.navbar-toggle(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1')
+                        span.fa.fa-bars.fa-lg
+                    a.navbar-brand(href='index.html')
+                        img.logo(src='img/openstar1.svg', alt='')
+                // Collect the nav links, forms, and other content for toggling
+                #bs-example-navbar-collapse-1.collapse.navbar-collapse
+                    ul.nav.navbar-nav.navbar-right
+                        li
+                            a(href="/") Home
+                        li
+                            a(href="#experiment") 試用申し込み
+                        li
+                            a(href='#price') 価格
+                // /.navbar-collapse
+            // /.container
+        // RevSlider
+        div(style="height: 150px;")
+
+    .wrapper
+        section#experiment(ng-controller="ExperimentController")
+            .container
+                .section-heading.scrollpoint.sp-effect3
+                    h1 試用お申し込み
+                    .divider
+                    .price_card.alpha
+                        .header
+                            span.price 無料
+                            span.name １ヶ月試用
+                        ul.features
+                            li １ヶ月無料で試用できます。
+                        button(ng-click="ExperimentCreate();") 試用申し込み
+
+
+        section#price(ng-controller="WebPayController")
+            .container
+                .section-heading.scrollpoint.sp-effect3
+                    h1 価格
+                    .divider
+
+                    #pricing
+                        .price_card.alpha
+                            .header
+                                span.price $10
+                                span.name Alpha Pack
+                            ul.features
+                                li Complete documentation
+                                li Working materials in PSD and Sketch format
+                            button(ng-click="RecursionCreate(1);") Add to cart
+                            span.tip * Great for beginners!
+                        .price_card.bravo
+                            .header
+                                span.price $15
+                                span.name Bravo Pack
+                            ul.features
+                                li Complete documentation
+                                li Working materials in PSD, Sketch and EPS format
+                                li 6 months access to the library
+                            button(ng-click="RecursionCreate(2);") Add to cart
+                            span.tip * Most popular!
+                        .price_card.charlie
+                            .header
+                                span.price $25
+                                span.name Charlie Pack
+                            ul.features
+                                li Complete documentation
+                                li Working materials in PSD, Sketch and EPS format
+                                li 1 year access to the library
+                                li 2GB cloud storage
+                            button(ng-click="RecursionCreate(3);") Add to cart
+
+
+
+        footer
+            .container
+
+                .row
+                    .col-sm-10.col-sm-offset-1
+
+                        div(style="margin-bottom:20px;")
+                            a(href='https://www.facebook.com/OpenStar60/', target='_blank')
+                                img(src="/img/facebook_logo.svg", style="height:18px")
+                            div(style="width:100px;margin-left:auto;margin-right:auto;margin-top:10px;")
+
+                .row
+                    .col-sm-10.col-sm-offset-1(style="padding:0;")
+                        .social-area-syncer
+                            row.social-button-syncer
+                                col-sm-4.sc-tw(style="margin:10px;")
+                                    a.twitter-share-button(data-url='http://w-monsin.com', href='https://twitter.com/share', data-lang='ja', data-count='vertical', data-dnt='true') ツイート
+                                col-sm-4.sc-fb(style="margin:10px;")
+                                    .fb-like(data-href='http://w-monsin.com', data-layout='box_count', data-action='like', data-show-faces='true', data-share='false')
+                                col-sm-4(style="margin:10px;")
+                                    div(data-href="http://w-monsin.com", class="g-plusone", data-size="tall")
+
