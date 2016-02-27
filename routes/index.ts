@@ -155,6 +155,11 @@ router.get('/law', function (req, res, next) {
     res.render('law', {});
 });
 
+/* GET home page. */
+router.get('/company', function (req, res, next) {
+    res.render('company', {});
+});
+
 router.post('/inquiry', mailer_controller.post_contact);
 
 router.get('/dialogs/inquiryconfirmdialog', function (req, res, next) {

@@ -1,0 +1,8 @@
+[2016-02-08 00:04:56.512] [INFO] request - routes Ok.
+[2016-02-08 00:04:56.513] [INFO] request - Jade Start.
+[2016-02-08 00:04:56.546] [INFO] request - mongoose Ok.
+[2016-02-08 00:04:56.632] [INFO] request - MongoStore Ok.
+[2016-02-08 00:04:56.632] [INFO] request - mongodb://localhost/wmonsin-site
+[2016-02-08 00:04:56.650] [INFO] request - Access Log OK.
+[2016-02-08 00:04:56.651] [INFO] request - Account Ok.
+[2016-02-08 00:43:47.519] [INFO] request - SIGINT.
