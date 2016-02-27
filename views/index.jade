@@ -23,25 +23,25 @@ block content
                 #bs-example-navbar-collapse-1.collapse.navbar-collapse
                     ul.nav.navbar-nav.navbar-right
                         li
-                            a(href='#information') お知らせ
+                            a.noto(href='#information') お知らせ
                         li
-                            a(href='#about') Wmonsinとは
+                            a.noto(href='#about') Wmonsinとは
                         li
-                            a(href='#features') 特徴
+                            a.noto(href='#features') 特徴
                         li
-                            a(href='#screens') 画面
+                            a.noto(href='#screens') 画面
                         //li
                             a(href='/articles') 価格
                         li
-                            a(href='/privacy') プライバシーポリシー
+                            a.noto(href='/privacy') プライバシーポリシー
                         li
-                            a(href='/law') 法に基づく表示
+                            a.noto(href='/law') 法に基づく表示
                         //li
                             a(href='#demo') デモ
                         //li
                             a(href='#reviews') レビュー
                         li
-                            a(href='#support') お問い合わせ
+                            a.noto(href='#support') お問い合わせ
         .tp-banner-container
             .tp-banner
                 ul
@@ -91,7 +91,7 @@ block content
                         .tp-caption.mediumlarge_light_white.sft.hidden-xs(data-x='left', data-y='center', data-hoffset='200', data-voffset='0', data-speed='1000', data-start='1200', data-easing='Power4.easeOut')
                             |         WEB問診票システムは
                         .tp-caption.small_light_white.sfb.hidden-xs(data-x='left', data-y='center', data-hoffset='200', data-voffset='80', data-speed='1000', data-start='1600', data-easing='Power4.easeOut')
-                            div
+                            div.noto
                                 | オープンソースのタブレット対応問診票Webアプリ。ライセンスは、MIT License
                                 br
                                 | Webアプリの新しい基盤環境MEANスタックを使って開発。
@@ -109,8 +109,8 @@ block content
                 .section-heading.scrollpoint.sp-effect3
                     h1 お知らせ
                     .divider
-                    p アルファ版で公開しています。2015年3月にはベータ版、4月には正式版として公開する予定です。
-                    p テスト運用にご協力頂ける医療機関様を募集しております。お気軽にお問い合わせ下さい。
+                    p.noto アルファ版で公開しています。2015年3月にはベータ版、4月には正式版として公開する予定です。
+                    p.noto テスト運用にご協力頂ける医療機関様を募集しております。お気軽にお問い合わせ下さい。
         section#about
             .container
                 .section-heading.scrollpoint.sp-effect3
@@ -263,7 +263,7 @@ block content
                 .section-heading.scrollpoint.sp-effect3
                     h1 画面
                     .divider
-                    p Wmonsinは、カスタマイズ可能な問診票です。
+                    p.noto Wmonsinは、カスタマイズ可能な問診票です。
                 .filter.scrollpoint.sp-effect3
                     a.button.js-filter-all.active(href='javascript:void(0)') 全て
                     a.button.js-filter-one(href='javascript:void(0)') ユーザ
@@ -272,25 +272,25 @@ block content
                 .slider.filtering.scrollpoint.sp-effect5
                     .one
                         img(src='img/freeze/screens/stuff2.png', alt='')
-                        h4 ユーザ登録
+                        h4.noto ユーザ登録
                     .two
                         img(src='img/freeze/screens/start.png', alt='')
-                        h4 メニュー
+                        h4.noto メニュー
                     .three
                         img(src='img/freeze/screens/patient1.png', alt='')
-                        h4 問診結果
+                        h4.noto 問診結果
                     .one
                         img(src='img/freeze/screens/stuff1.png', alt='')
-                        h4 スタッフ
+                        h4.noto スタッフ
                     .one
                         img(src='img/freeze/screens/inquiry3.png', alt='')
-                        h4 問診票
+                        h4.noto 問診票
                     .two
                         img(src='img/freeze/screens/inquiry2.png', alt='')
-                        h4 問診票
+                        h4.noto 問診票
                     .three
                         img(src='img/freeze/screens/patient3.png', alt='')
-                        h4 問診結果
+                        h4.noto 問診結果
         //section#demo
             .container
                 .section-heading.scrollpoint.sp-effect3
@@ -367,15 +367,15 @@ block content
                 .section-heading.scrollpoint.sp-effect3
                     h1 OSS
                     .divider
-                    p 日本の医療情報システムの発展のため、本プログラムは、OSSとしソースコードを公開します。
-                    p MIT License.GitHubで公開,下記よりソースコードが取得できます。
+                    p.noto 日本の医療情報システムの発展のため、本プログラムは、OSSとしソースコードを公開します。
+                    p.noto MIT License.GitHubで公開,下記よりソースコードが取得できます。
                     h3
                         a(href="https://github.com/open-star") https://github.com/open-star
                     br
                     br
                     br
-                    p DockerHubでコンテナイメージを公開
-                    p 下記でw-monsin のコンテナイメージを公開しています。
+                    p.noto DockerHubでコンテナイメージを公開
+                    p.noto 下記でw-monsin のコンテナイメージを公開しています。
                     h3
                         a(href="https://hub.docker.com/r/openstar/") https://hub.docker.com/r/openstar/
         section#support.doublediagonal
@@ -437,9 +437,11 @@ block content
                     .col-sm-8.col-sm-offset-2(style="color:black;padding-bottom:80px;")
                         .row
                             .col-sm-6
-                                a(href="/index#support", style="color:black;") お問い合わせ
+                                a(href="/index#support")
+                                    h3.noto(style="color:black;") お問い合わせ
                             .col-sm-6
-                                a(href="/company", style="color:black;") 会社概要
+                                a(href="/company", style="color:black;")
+                                    h3.noto(style="color:black;")  会社概要
 
                 .row
                     .col-sm-10.col-sm-offset-1
@@ -453,11 +455,11 @@ block content
                         .social-area-syncer
                             row.social-button-syncer
                                 col-sm-4.sc-tw(style="margin:10px;")
-                                    a.twitter-share-button(data-url='http://w-monsin.com', href='https://twitter.com/share', data-lang='ja', data-count='vertical', data-dnt='true') ツイート
+                                    a.twitter-share-button(data-url='https://w-monsin.com', href='https://twitter.com/share', data-lang='ja', data-count='vertical', data-dnt='true') ツイート
                                 col-sm-4.sc-fb(style="margin:10px;")
-                                    .fb-like(data-href='http://w-monsin.com', data-layout='box_count', data-action='like', data-show-faces='true', data-share='false')
+                                    .fb-like(data-href='https://w-monsin.com', data-layout='box_count', data-action='like', data-show-faces='true', data-share='false')
                                 col-sm-4(style="margin:10px;")
-                                    div(data-href="http://w-monsin.com", class="g-plusone", data-size="tall")
+                                    div(data-href="https://w-monsin.com", class="g-plusone", data-size="tall")
 
 
 
