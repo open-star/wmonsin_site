@@ -33,3 +33,4 @@
 [2016-02-27 21:32:25.157] [INFO] request - LocalStrategy Ok.
 [2016-02-27 21:32:25.286] [INFO] request - FacebookStrategy Ok.
 [2016-02-27 21:32:25.473] [INFO] request - session Ok.
+[2016-02-27 23:06:49.751] [INFO] request - SIGINT.
