@@ -1,5 +1,7 @@
 /// <reference path="../../../typings/tsd.d.ts" />
 
+//test
+
 'use strict';
 
 var articlecontroller:angular.IModule = angular.module('ArticleControllers', ["ngResource", 'ngMessages', 'ngAnimate', 'ngSanitize']);
@@ -32,7 +34,6 @@ function List(resource:any, query:any, success:(value:any) => void):void {
         }
     });
 }
-
 
 articlecontroller.controller('ArticleController', ['$scope', '$mdDialog', 'Article', 'ArticleAccept', 'ArticleQuery',
     ($scope:any, $mdDialog:any, Article:any, ArticleAccept:any, ArticleQuery:any):void => {
