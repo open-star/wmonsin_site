@@ -1,5 +1,5 @@
-@import url(http://fonts.googleapis.com/css?family=Indie+Flower);
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:300,400,700);
+@import url(//fonts.googleapis.com/css?family=Indie+Flower);
+@import url(//fonts.googleapis.com/css?family=Open+Sans:300,400,700);
 body{
     background-color: rgb(237, 237, 237);
 }
@@ -91,4 +91,58 @@ button{
     position: absolute;
     color: rgb(117, 117, 117);
     margin: 10px 5px;
+}
+
+.list {
+    list-style:none;
+    text-align:left;
+}
+
+
+.flat-table {
+    margin-right: auto;
+    margin-left: auto;
+    font-family: sans-serif;
+    -webkit-font-smoothing: antialiased;
+    font-size: 90%;
+
+    border: solid 1px #000000;
+    border-collapse: separate;
+}
+
+.subhead {
+    background-color: rgb(112, 196, 105);
+    color: white;
+}
+
+th {
+    background-color: rgb(112, 196, 105);
+    color: white;
+    font-weight: normal;
+    padding: 10px 10px;
+    text-align: center;
+    border: solid 1px #000000;
+}
+
+td {
+    background-color: rgb(238, 238, 238);
+    color: rgb(111, 111, 111);
+    padding: 10px 10px;
+    border: solid 1px #000000;
+}
+
+#price1 {
+    background:#ffffff;
+}
+
+#price3 {
+    background:#ffffff;
+}
+
+#price5 {
+    background:#ffffff;
+}
+
+#price7 {
+    background:#ffffff;
 }
