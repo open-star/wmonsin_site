@@ -49,6 +49,6 @@ var Mailer = (function () {
         //     });
     };
     return Mailer;
-})();
+}());
 module.exports = Mailer;
 //# sourceMappingURL=mailer_controller.js.map
