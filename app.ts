@@ -168,9 +168,9 @@ process.on('exit', (code) => {
   logger.info('Stop.' + code);
 });
 
-process.on('SIGINT', () => {
-  logger.info('SIGINT.');
-});
+//process.on('SIGINT', () => {
+//  logger.info('SIGINT.');
+//});
 
 app.use(session({
   name: config.sessionname,

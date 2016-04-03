@@ -38,11 +38,12 @@ class Mailer {
                 var resultMail:MailSender = {
                     from: config.mailaccount,
                     to: request.body.email + "," + config.mailaccount,
-                    subject: config.inquirymailsubject,
+                    subject: request.body.title,
                     html: "<br/>" +
-                    config.inquirymailreader +  "<br/>" +
-                    request.body.name + "<br/>" +
-                    request.body.message + "<br/>" +
+                    config.inquirymailreader + "<br/>" +
+                    "医療機関名: " + request.body.org + " 様<br/>" +
+                    "お名前: " + request.body.name + " 様<br/>" +
+                    "お問い合わせ: " + request.body.message + "<br/>" +
                     config.inquirymailtrailer + "<br/>"
                 };
 

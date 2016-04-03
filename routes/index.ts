@@ -146,6 +146,11 @@ router.get('/articles', function (req, res, next) {
 });
 
 /* GET home page. */
+router.get('/price', function (req, res, next) {
+    res.render('price', {});
+});
+
+/* GET home page. */
 router.get('/privacy', function (req, res, next) {
     res.render('privacy', {});
 });
