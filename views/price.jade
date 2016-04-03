@@ -1,0 +1,607 @@
+extends layout
+
+block content
+
+    .pre-loader
+        .load-con
+            img.animated.fadeInDown(src='img/freeze/logo.png', alt='')
+            .spinner
+                .bounce1
+                .bounce2
+                .bounce3
+    header
+        nav.navbar.navbar-default.navbar-fixed-top(role='navigation')
+            .container
+                // Brand and toggle get grouped for better mobile display
+                .navbar-header
+                    button.navbar-toggle(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1')
+                        span.fa.fa-bars.fa-lg
+                    a.navbar-brand(href='index.html')
+                        img.logo(src='img/openstar1.svg', alt='')
+                // Collect the nav links, forms, and other content for toggling
+                #bs-example-navbar-collapse-1.collapse.navbar-collapse
+                    ul.nav.navbar-nav.navbar-right
+                        li
+                            a.noto(href="/") Home
+                        li
+                            a.noto(href='/index#support') お問い合わせ
+                        //li
+                            a(href='/articles') 価格
+                        li
+                            a.noto(href='/privacy') プライバシーポリシー
+                // /.navbar-collapse
+            // /.container
+        // RevSlider
+        div(style="height: 150px;")
+
+    .wrapper
+        section#experiment()
+            .container
+                .section-heading.scrollpoint.sp-effect3
+                    h1 試用お申し込み
+                    .divider
+                    .price_card.alpha
+                        .header
+                            span.price 無料
+                            span.name １ヶ月試用
+                        ul.features
+                            li １ヶ月無料で試用できます。
+                        a.btn.btn-primary(href="#inquiry" role="button",style="margin:10px;") 試用申し込み
+
+        section#price
+            .container
+                .section-heading.scrollpoint.sp-effect3
+                    h1 価格
+                    .divider
+                    #pricing
+                        .row(style="margin:40px;")
+                            .price_card.alpha
+                                .header
+                                    span.price(style="font-size:3vw;") 145,000から
+                                    span.name クラウドモデル
+                                ul.features
+                                    li 調査,ご提案
+                                    li 問診票サーバの構築
+                                    li 問診票クライアントの設定
+                                    li VPNサーバの設定
+                                    li VPNクライアントの設定
+                                    li ルーティングの設定
+                                a.btn.btn-primary(href="#price1" role="button", style="margin:10px;") 詳細
+
+                            .price_card.alpha
+                                .header
+                                    span.price(style="font-size:3vw;") 6,000/月から
+                                    span.name クラウドモデル 運用時サポート
+                                ul.features
+                                    li 電話/FAX/チャット/遠隔操作での問合せ,障害対応
+                                    li 週に一回,自動的に仮想サーバ全体のバックアップ,
+                                    li 毎日,データベースのバックアップ
+                                    li 不具合への対応
+                                    li 問診票システムの更新
+                                a.btn.btn-primary(href="#price3" role="button", style="margin:10px;") 詳細
+
+                        .row(style="margin:40px;")
+                            .price_card.bravo
+                                .header
+                                    span.price(style="font-size:3vw;") 65,000から
+                                    span.name ローカルモデル
+                                ul.features
+                                    li 調査、ご提案
+                                    li 問診票サーバの構築
+                                    li 問診票クライアントの設定
+                                a.btn.btn-primary(href="#price5" role="button", style="margin:10px;") 詳細
+                            .price_card.bravo
+                                .header
+                                    span.price(style="font-size:3vw;") 6,000/月から
+                                    span.name ローカルモデル 運用時サポート
+                                ul.features
+                                    li 電話/FAX/チャット/遠隔操作での問合せ,障害対応
+                                    li 毎日,データベースのバックアップ
+                                    li 不具合への対応
+                                    li 最新版の提供(更新作業は別途費用)
+                                a.btn.btn-primary(href="#price7" role="button", style="margin:10px;") 詳細
+
+        section#price1
+            .container
+                .section-heading.scrollpoint.sp-effect3
+                    h1.noto 診療所向けクラウドモデル
+                    h2.noto 導入時サポート
+                    .divider
+                    .row
+                        table.flat-table
+                            tr
+                                th サービス名
+                                th サービス内容
+                                th 価格[円](税別)
+                            tr
+                                td 調査,ご提案
+                                td ご要望などの聞き取り,現場調査,利用環境,運用のご提案
+                                td(style="text-align:right;") 40,000
+                            tr
+                                td 問診票サーバの構築
+                                td クラウド側で問診票サーバを用意し,セットアップします。
+                                td(style="text-align:right;") 20,000
+                            tr
+                                td 問診票クライアントの設定
+                                td
+                                    ul.list
+                                        li 院内のWindows PC,Mac,
+                                        li タブレットに問診票クライアントの設定を行い、
+                                        li 動作確認します(計5台まで)
+                                td(style="text-align:right;") 5,000
+                            tr
+                                td.subhead VPNの構築
+                                td.subhead
+                                td.subhead
+                            tr
+                                td VPNサーバの設定
+                                td クラウド側にVPNサーバをセットアップします。
+                                td(style="text-align:right;") 20,000
+                            tr
+                                td.subhead VPNクライアントを使う場合
+                                td.subhead
+                                td.subhead
+                            tr
+                                td VPNクライアントの設定
+                                td
+                                    ul.list
+                                        li 院内のWindows PC,Mac,
+                                        li タブレットのVPNを設定し,動作確認します(計5台まで)
+                                td(style="text-align:right;") 30,000
+                            tr
+                                td ルーティングの設定
+                                td
+                                    ul.list
+                                        li アダプタのメトリック値,バインドの変更,
+                                        li ルーティグテーブルにデータセンターへの経路を追加
+                                        li (計5台まで)
+                                td(style="text-align:right;") 30,000
+                            tr
+                                td.subhead VPNブリッジを使う場合(準備中)
+                                td.subhead
+                                td.subhead
+                            tr
+                                td VPN用機器
+                                td VPN用機器としてシングルボードコンピュータを提供します。
+                                td(style="text-align:right;") 40,000
+
+                            tr
+                                td VPNブリッジの設定
+                                td VPN用機器にVPNブリッジ機能をセットアップし,動作確認します。
+                                td(style="text-align:right;") 20,000
+                            tr
+                                td 合計
+                                td
+                                td(style="text-align:right;") 145,000
+                        div ※システム改善のため予告無くサービス内容,価格などを変更する場合があります。
+                        div 2016/3/28 現在
+        section#price2
+            .container
+                .section-heading.scrollpoint.sp-effect3
+                    h2.noto オプション
+                    .divider
+                    .row
+                        table.flat-table
+                            tr
+                                th サービス名
+                                th サービス内容
+                                th 価格[円](税別)
+                            tr
+
+                                td 無線LANアクセスポイント
+                                td 法人向け無線LANアクセスポイントをご提供します。
+                                td(style="text-align:right;") 40,000
+                            tr
+                                td 無線LANアクセスポイントの設定
+                                td 法人向け無線LANアクセスポイントを設定します。
+                                td(style="text-align:right;") 12,000
+                            tr
+                                td タブレット
+                                td
+                                    ul.list
+                                        li アンドロイド 7インチ/16GB/Wi-Fi
+                                        li (iPadをご希望の場合は,医療機関様側,または取次店様側でご調達下さい。)
+                                td(style="text-align:right;") 30,000
+                            tr
+                                td タブレットの初期設定
+                                td タブレットの初期設定を実施します。
+                                td(style="text-align:right;") 10,000
+                            tr
+                                td 日レセとの連携
+                                td
+                                    ul.list
+                                        li 日レセ(日医標準レセプトソフト)
+                                        li から受付情報を取得する連携ソフトを院内PCにインストールし,設定します。
+                                td(style="text-align:right;") 10,000
+                            tr
+                                td 機器一式の搬入,設置,設定
+                                td 本システムで使用する機器一式を搬入、設置、設定します。
+                                td(style="text-align:right;") 60,000
+                        div ※システム改善のため,予告無くサービス内容,価格などを変更する場合があります。
+                        div 2016/3/28 現在
+        section#price3
+            .container
+                .section-heading.scrollpoint.sp-effect3
+                    h1.noto 診療所向けクラウドモデル
+                    h2.noto 運用時サポート
+                    .divider
+                    .row
+                        table.flat-table
+                            tr
+                                th サービス名
+                                th サービス内容
+                                th 月額価格[円](税別)
+                            tr
+                                td 問診票システムサポート,保守
+                                td
+                                    ul.list
+                                        li サポート:
+                                        li 電話/FAX/チャット/遠隔操作での問合せ,障害対応
+                                        li 対応時間
+                                        li 平日: 9:00～1900、土曜: 9:00～13:00
+                                        li 保守
+                                        li バックアップ:
+                                        li 週に一回,自動的に仮想サーバ全体のバックアップ,
+                                        li 毎日,データベースのバックアップ
+                                        li 不具合への対応
+                                        li 問診票システムの更新
+                                        li 端末５台までの月額費用です。クラウドの利用料も含みます。
+                                        li 年間契約で1年分72,000円を一括前払い(端末5台まで)
+                                        li 契約期間:
+                                        li 最低1年間解約意思をユーザー様が示さない限り、
+                                        li さらに1年間自動継続
+                                td(style="text-align:right;") 6,000
+
+                        div ※システム改善のため、予告無くサービス内容、価格などを変更する場合があります。
+                        div 2016/3/28 現在
+        section#price4
+            .container
+                .section-heading.scrollpoint.sp-effect3
+                    h2.noto オプション
+                    .divider
+                    .row
+                        table.flat-table
+                            tr
+                                th サービス名
+                                th サービス内容
+                                th 月額費用[円](税別)
+                            tr
+                                td VPN用機器保守(準備中)
+                                td
+                                    ul.list
+                                        li 製品保証(先出しセンドバック)
+                                        li Q&Aサービス
+                                        li 不具合に対する対応
+                                        li 最新バージョンファームウェアの提供
+                                        li 年間契約で1年分12,000円を一括前払い願います。
+                                td(style="text-align:right;") 1,000
+                            tr
+                                td 端末追加
+                                td
+                                    ul.list
+                                        li 6台目より,1台あたり月500円のサポート料が必要です。
+                                        li タブレットも端末として数えます。
+                                        li 年間契約で1年分一括前払い。
+                                        li VPNクライアントを使う場合は、
+                                        li 1台あたり設定料12,000円が別途必要です。
+                                td(style="text-align:right;") 500
+                            tr
+                                td 問診票カスタマイズ
+                                td 分岐機能、シェーマ画像など、問診の内容により別途、個別見積り。
+                                td(style="text-align:right;") 個別見積
+                            tr
+                                td 問診テンプレート追加
+                                td
+                                    ul.list
+                                        li 弊社でテンプレートを作成する場合は有償となります。
+                                        li ユーザー様側で作成する場合は無償です。
+                                td(style="text-align:right;") 個別見積
+                            tr
+                                td 他システムとの自動連携
+                                td
+                                    ul.list
+                                        li 日レセ連携ソフトの保守,サポート
+                                        li 日レセ(日医標準レセプトソフト)
+                                        li から受付情報を取得する連携ソフトの保守
+                                        li サポートを提供します。
+                                        li 年間契約で1年分12,000円を一括前払い願います。
+                                td(style="text-align:right;") 1,000
+                            tr
+                                td
+                                    ul.list
+                                        li ダイナミクス連携ソフトの保守,サポート
+                                        li (準備中)
+                                td
+                                    ul.list
+                                        li ダイナミクスから受付情報を取得する連携ソフトの保守
+                                        li サポートを提供します。
+                                        li 年間契約で1年分12,000円を一括前払い願います。
+                                td(style="text-align:right;") 1,000
+                            tr
+                                td 電子カルテとの自動連携(API)
+                                td
+                                    ul.list
+                                        li 電子カルテ側で、w-monsinが提供するAPIを使用する事により、
+                                        li 問診結果が取り込めるようになります。
+                                td(style="text-align:right;") 1,000
+                            tr
+                                td 電子カルテとの自動連携(個別)
+                                td 電子カルテとの個別自動連携は、別途個別見積りとなります。
+                                td
+                            tr
+                                td 個別見積現地訪問によるサポート
+                                td 医療機関様の現場まで全国に出張してサポートします。
+                                td(style="text-align:right;") 個別見積
+                        div ※システム改善のため,予告無くサービス内容,価格などを変更する場合があります。
+                        div 2016/3/28 現在
+        section#price5
+            .container
+                .section-heading.scrollpoint.sp-effect3
+                    h1.noto 診療所向けローカルモデル
+                    h2.noto 導入時サポート
+                    .divider
+                    .row
+                        table.flat-table
+                            tr
+                                th サービス名
+                                th サービス内容
+                                th 価格[円](税別)
+                            tr
+                                td 調査、ご提案
+                                td ご要望などの聞き取り,現場調査,利用環境,運用のご提案
+                                td(style="text-align:right;") 40,000
+                            tr
+                                td 問診票サーバの構築
+                                td サーバに問診票アプリをセットアップします。
+                                td(style="text-align:right;") 20,000
+                            tr
+                                td 問診票クライアントの設定
+                                td
+                                    ul.list
+                                        li 院内のWindows PC,Mac,
+                                        li タブレットに問診票クライアントの設定を行い、
+                                        li 動作確認します(計5台まで)
+                                td(style="text-align:right;") 5,000
+                            tr
+                                td 合計
+                                td
+                                td(style="text-align:right;") 65,000
+                        div ※システム改善のため、予告無くサービス内容、価格などを変更する場合があります。
+                        div 2016/3/28 現在
+        section#price6
+            .container
+                .section-heading.scrollpoint.sp-effect3
+                    h2.noto オプションサービス
+                    .divider
+                    .row
+                        table.flat-table
+                            tr
+                                th サービス名
+                                th サービス内容
+                                th 価格[円](税別)
+                            tr
+                                td 問診票サーバ
+                                td 長時間駆動、信頼性の高いサーバ専用機をご提供します。
+                                td(style="text-align:right;") open
+                            tr
+                                td 無線LANアクセスポイント
+                                td 法人向け無線LANアクセスポイントをご提供します。
+                                td(style="text-align:right;") 40,000
+                            tr
+                                td 無線LANアクセスポイントの設定
+                                td 法人向け無線LANアクセスポイントを設定します。
+                                td(style="text-align:right;") 12,000
+                            tr
+                                td タブレット
+                                td
+                                    ul.list
+                                        li アンドロイド 7インチ/16GB/Wi-Fi
+                                        li (iPad をご希望の場合は、医療機関様側、または取次店様側でご調達下さい。)
+                                td(style="text-align:right;") 30,000
+                            tr
+                                td タブレットの初期設定
+                                td タブレットの初期設定を実施します。
+                                td(style="text-align:right;") 10,000
+                            tr
+                                td 日レセとの連携
+                                td
+                                    ul.list
+                                        li 日レセ(日医標準レセプトソフト)
+                                        li から受付情報を取得する連携ソフトを
+                                        li 院内PCにインストールし、設定します。
+                                td(style="text-align:right;") 10,000
+                            tr
+                                td 機器一式の搬入、設置、設定
+                                td 本システムで使用する機器一式を搬入、設置、設定します。
+                                td(style="text-align:right;") 60,000
+                        div ※システム改善のため、予告無くサービス内容、価格などを変更する場合があります。
+                        div 2016/3/28 現在
+        section#price7
+            .container
+                .section-heading.scrollpoint.sp-effect3
+                    h1.noto 診療所向けローカルモデル
+                    h2.noto 運用時サポート
+                    .divider
+                    .row
+                        table.flat-table
+                            tr
+                                th サービス名
+                                th サービス内容
+                                th 月額価格[円](税別)
+                            tr
+                                td 問診票システムサポート、保守
+                                td
+                                    ul.list
+                                        li サポート:
+                                        li 電話/FAX/チャット/遠隔操作での問合せ、障害対応
+                                        li 対応時間
+                                        li 平日: 9:00～1900,土曜: 9:00～13:00
+                                        li 保守
+                                        li バックアップ:
+                                        li 毎日、データベースのバックアップ
+                                        li 不具合への対応
+                                        li 最新版の提供(更新作業は、別途費用必要)
+                                        li 端末５台までの月額費用です。
+                                        li 年間契約で1年分72,000円を一括前払い(端末5台まで)
+                                        li 契約期間:
+                                        li 最低1年間。解約意思をユーザー様が示さない限り、
+                                        li さらに1年間自動継続
+                                td(style="text-align:right;") 6,000
+                        div ※システム改善のため、予告無くサービス内容、価格などを変更する場合があります。
+                        div 2016/3/28 現在
+        section#price8
+            .container
+                .section-heading.scrollpoint.sp-effect3
+                    h2.noto オプションサービス
+                    .divider
+                    .row
+                        table.flat-table
+                            tr
+                                th サービス名
+                                th サービス内容
+                                th 月額費用[円](税別)
+                            tr
+                                td 端末追加
+                                td
+                                    ul.list
+                                        li 6台目より,1台あたり月500円のサポート料が必要です。
+                                        li タブレットも端末として数えます。
+                                        li 年間契約で1年分一括前払い。
+                                        li VPNクライアントを使う場合は、
+                                        li 1台あたり設定料12,000円が別途必要です。
+                                td(style="text-align:right;") 500
+                            tr
+                                td 問診票カスタマイズ
+                                td 分岐機能,シェーマ画像など,問診の内容により別途,個別見積り。
+                                td(style="text-align:right;") 個別見積
+                            tr
+                                td 問診テンプレート追加
+                                td
+                                    ul.list
+                                        li 弊社でテンプレートを作成する場合は有償となります。
+                                        li ユーザー様側で作成する場合は無償です。
+                                td(style="text-align:right;") 個別見積
+                            tr
+                                td 他システムとの自動連携
+                                td
+                                    ul.list
+                                        li 日レセ連携ソフトの保守,サポート
+                                        li 日レセ(日医標準レセプトソフト)
+                                        li から受付情報を取得する連携ソフトの保守
+                                        li サポートを提供します。
+                                        li 年間契約で1年分12,000円を一括前払い願います。
+                                td(style="text-align:right;") 1,000
+                            tr
+                                td ダイナミクス連携ソフトの保守,サポート(準備中)
+                                td
+                                    ul.list
+                                        li ダイナミクスから受付情報を取得する連携ソフトの保守
+                                        li サポートを提供します。
+                                        li 年間契約で1年分12,000円を一括前払い願います。
+                                td(style="text-align:right;") 1,000
+                            tr
+                                td 電子カルテとの自動連携(API)
+                                td
+                                    ul.list
+                                        li 電子カルテ側でw-monsinが提供するAPIを使用する事により、
+                                        li 問診結果が取り込めるようになります。
+                                td(style="text-align:right;") 1,000
+                            tr
+                                td 電子カルテとの自動連携(個別)
+                                td 電子カルテとの個別自動連携は,別途個別見積りとなります。
+                                td
+                            tr
+                                td 個別見積現地訪問によるサポート
+                                td 医療機関様の現場まで全国に出張してサポートします。
+                                td(style="text-align:right;") 個別見積
+                        div ※システム改善のため予告無くサービス内容、価格などを変更する場合があります。
+                        div 2016/3/28 現在
+
+        section#inquiry.doublediagonal
+            .container
+                .section-heading.scrollpoint.sp-effect3
+                    h1 試用お申し込み
+                    .divider
+                    p 試用お申し込みはこちらから
+                .row
+                    .col-md-12
+                        .row
+                            .col-md-8.col-sm-8.scrollpoint.sp-effect1
+                                //form(method="POST", action="mailto:contact@openstar.biz")
+                                    .form-group
+                                        input.form-control(type='text',name="name", placeholder='Your name')
+                                    .form-group
+                                        input.form-control(type='email',name='email', placeholder='Your email')
+                                    .form-group
+                                        textarea.form-control(type='text',name="body", cols='30', rows='10', placeholder='Your message')
+                                    button.btn.btn-primary.btn-lg(type='submit') Submit
+                                form#contact-form(role='form', name="validate")
+                                    .form-group
+                                        label(for='c_name') Name
+                                        input#c_name.form-control(type='text', ng-model="name", name='c_name', placeholder='Name', style="color:black;")
+                                    .form-group
+                                        label(for='c_email') Email
+                                        input#c_email.form-control(type='email',ng-model="email", name='c_email', placeholder='E-mail', style="color:black;" required)
+                                        div(ng-messages="validate.c_email.$error")
+                                            div(ng-message="required") メールアドレスは必須です
+                                    .form-group
+                                        label(for='c_org') 医療機関名
+                                        input#c_org.form-control(type='text',ng-model="org", name='c_org', placeholder='', style="color:black;" required)
+                                        div(ng-messages="validate.c_org.$error")
+                                            div(ng-message="required") 医療機関名は必須です
+                                    .form-group
+                                        label(for='c_message') Message
+                                        textarea#c_message.form-control(ng-model="message", name='c_message', rows='7', placeholder='Message', style="color:black;")
+                                    button.btn.btn-primary.btn-lg(ng-click="send('試用申し込み承ります');", ng-disabled="validate.c_email.$invalid") Send Message
+                                    span(style="margin-left:100px;") {{errormessage}}
+                            .col-md-4.col-sm-4.contact-details.scrollpoint.sp-effect2
+                                .media
+                                    a.pull-left(href='#')
+                                        i.fa.fa-map-marker.fa-2x
+                                    .media-body
+                                        h6.media-heading 大阪市中央区備後町3-6-2 大雅ビル10F-109
+                                        | (株) OPEN
+                                        i.fa.fa-star(style="border:none;padding: 0;")
+                                        | STAR
+                                .media
+                                    a.pull-left(href="mailto:contact@openstar.biz")
+                                        i.fa.fa-envelope.fa-2x
+                                    .media-body
+                                        h4.media-heading
+                                            a(href="mailto:contact@openstar.biz") contact@openstar.biz
+                                .media
+                                    a.pull-left(href='tel:0661237056')
+                                        i.fa.fa-phone.fa-2x
+                                    .media-body
+                                        h4.media-heading
+                                            a.pull-left(href='tel:0661237056') 06-6123-7056
+    footer
+        .container
+            .row
+                .col-sm-8.col-sm-offset-2(style="color:black;padding-bottom:80px;")
+                    .row
+                        .col-sm-6
+                            a(href="/index#support")
+                                h3.noto(style="color:black;") お問い合わせ
+                        .col-sm-6
+                            a(href="/company", style="color:black;")
+                                h3.noto(style="color:black;")  会社概要
+            .row
+                .col-sm-10.col-sm-offset-1
+
+                    div(style="margin-bottom:20px;")
+                        a(href='https://www.facebook.com/OpenStar60/', target='_blank')
+                            img(src="/img/facebook_logo.svg", style="height:18px")
+                        div(style="width:100px;margin-left:auto;margin-right:auto;margin-top:10px;")
+            .row
+                .col-sm-10.col-sm-offset-1(style="padding:0;")
+                    .social-area-syncer
+                        row.social-button-syncer
+                            col-sm-4.sc-tw(style="margin:10px;")
+                                a.twitter-share-button(data-url='https://w-monsin.com', href='https://twitter.com/share', data-lang='ja', data-count='vertical', data-dnt='true') ツイート
+                            col-sm-4.sc-fb(style="margin:10px;")
+                                .fb-like(data-href='https://w-monsin.com', data-layout='box_count', data-action='like', data-show-faces='true', data-share='false')
+                            col-sm-4(style="margin:10px;")
+                                div(data-href="https://w-monsin.com", class="g-plusone", data-size="tall")
+
+    script(type="application/ld+json")

@@ -65,11 +65,13 @@ viewcontroller.factory('Inquiry', ['$resource',
 viewcontroller.controller('ViewController', ["$scope", '$modal', 'Inquiry',
     ($scope:any, $modal:any, Inquiry:any):void => {
 
-        $scope.send = () => {
+        $scope.send = (title) => {
             var inquiry:any = new Inquiry();
 
+            inquiry.title = title;
             inquiry.name = $scope.name;
             inquiry.email = $scope.email;
+            inquiry.org = $scope.org;
             inquiry.message = $scope.message;
             inquiry.$post((data:any):void => {
                     if (data) {
