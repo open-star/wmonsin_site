@@ -33,3 +33,24 @@
 [2016-04-09 16:23:40.186] [INFO] request - LocalStrategy Ok.
 [2016-04-09 16:23:40.327] [INFO] request - FacebookStrategy Ok.
 [2016-04-09 16:23:40.490] [INFO] request - session Ok.
+[2016-04-09 16:46:19.242] [INFO] request - -----------------------Invoke---------------------
+[2016-04-09 16:46:22.766] [INFO] request - routes Ok.
+[2016-04-09 16:46:19.246] [INFO] request - log4js Ok.
+[2016-04-09 16:46:22.766] [INFO] request - Jade Start.
+[2016-04-09 16:46:19.247] [INFO] request - logger Ok.
+[2016-04-09 16:46:24.004] [INFO] request - mongoose Ok.
+[2016-04-09 16:46:19.247] [INFO] request - express Ok.
+[2016-04-09 16:46:24.464] [INFO] request - MongoStore Ok.
+[2016-04-09 16:46:19.247] [INFO] request - fs Ok.
+[2016-04-09 16:46:24.464] [INFO] request - mongodb://localhost/wmonsin-site
+[2016-04-09 16:46:19.247] [INFO] request - config Ok.
+[2016-04-09 16:46:24.520] [INFO] request - Access Log OK.
+[2016-04-09 16:46:19.247] [INFO] request - path Ok.
+[2016-04-09 16:46:24.521] [INFO] request - Account Ok.
+[2016-04-09 16:46:19.288] [INFO] request - favicon Ok.
+[2016-04-09 16:46:19.316] [INFO] request - cookieParser Ok.
+[2016-04-09 16:46:19.324] [INFO] request - bodyParser Ok.
+[2016-04-09 16:46:19.389] [INFO] request - passport Ok.
+[2016-04-09 16:46:19.405] [INFO] request - LocalStrategy Ok.
+[2016-04-09 16:46:19.546] [INFO] request - FacebookStrategy Ok.
+[2016-04-09 16:46:19.781] [INFO] request - session Ok.
