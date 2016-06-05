@@ -1,32 +1,55 @@
 md-dialog.box-edge(flex)
     md-toolbar
-        h3 Add
-        md-button.md-fab.md-warn(ng-click='cancel()', aria-label="Cancel", style="position:relative;top:20px;")
-            ng-md-icon.iconfill(icon="clear", style="position:relative;top:4px;", size="46")
-            md-tooltip キャンセル
+        .md-toolbar-tools(layout="row", layout-align="end center")
+            h3(style="color:white;") 記事追加
+            span(flex)
+            md-button.md-fab.md-mini.md-warn(ng-click='cancel()', aria-label="Cancel", style="position:relative;top:20px;")
+                ng-md-icon.iconfill(icon="clear", style="position:relative;top:4px;", size="20")
+                md-tooltip キャンセル
 
     md-dialog-content.layout-padding
         ng-form(name="validate")
+            div(layout="row")
+                div(flex="20")
+                    div(layout="column")
+                        md-card(style="background:#CFD8DC;")
+                            img(style="width:100%;padding:10px;", src="/file/{{image}}" ng-show="image")
+                            div(style="font-size:1vw;") {{image}}
+                div(flex)
+                    md-input-container.md-block(flex)
+                        label タイトル
+                        input(ng-model='title', type='text', name='title',md-maxlength="30", placeholder='Enter title', required)
+                        div(ng-messages="validate.title.$error")
+                            div(ng-message="required") 必須項目です。
 
-            label name
-            input(ng-model='name', type='text', name='name', placeholder='Enter name', required)
-            div(ng-messages="validate.name.$error")
-                div(ng-message="required") required
+                    md-input-container.md-block(flex)
+                        label 詳細
+                        textarea(ng-model='description',rows="5", md-select-on-focus, md-maxlength="300", name='description', placeholder='Enter description', required)
+                        div(ng-messages="validate.description.$error")
+                            div(ng-message="required") 必須項目です。
 
-            label title
-            input(ng-model='title', type='text', name='title', placeholder='Enter title', required)
-            div(ng-messages="validate.title.$error")
-                div(ng-message="required") required
+                    //md-input-container.md-block(flex)
+                        label 本文
+                        textarea(ng-model='text',rows="20", md-select-on-focus, md-maxlength="500", name='text', placeholder='Enter text', required)
+                        div(ng-messages="validate.text.$error")
+                            div(ng-message="required") 必須項目です。
 
-            label description
-            input(ng-model='description', type='text', name='description', placeholder='Enter description', required)
-            div(ng-messages="validate.description.$error")
-                div(ng-message="required") required
+            div(layout="row",style="overflow:scroll;height:200px;")
+                div(flex)
+                    div(ng-controller="FileController")
+                        md-grid-list(md-cols="1" md-cols-sm="5" md-cols-md="6" md-cols-gt-md="8" md-row-height-gt-md="4:4" md-row-height="4:4" md-gutter="2px" md-gutter-gt-sm="2px")
+                            md-grid-tile(ng-click="selectFile(file.filename);", style="background:#dddddd;", ng-repeat="file in files", md-rowspan="1", md-colspan="1", md-colspan-sm="1", md-colspan-xs="1")
+                                img(style="width:80%", ng-src="/file/" + '{{file.filename}}')
 
-            label text
-            input(ng-model='text', type='text', name='text', placeholder='Enter text', required)
-            div(ng-messages="validate.text.$error")
-                div(ng-message="required") required
-                    
+
+
+            //md-input-container.md-block(flex)
+                md-select(placeholder="Assign to file" ng-model="file" md-on-open="loadFiles()",required, style="min-width: 200px;")
+                    md-option(ng-value="file" ng-repeat="file in files") {{file.filename}}
+                div(ng-messages="validate.file.$error")
+                    div(ng-message="required") required
+
+            md-progress-linear(ng-show="progress", md-mode="indeterminate")
+        div(style="text-align:center;font-size:13px;margin-top:10px;font-weight:bold;") {{message}}
     md-dialog-actions(layout="row")
-        md-button.md-raised.md-primary(ng-click='ok()', ng-disabled="validate.$invalid", aria-label="") OK
+        md-button.md-raised.md-primary(ng-click='ok()', ng-show="image", ng-disabled="validate.$invalid", aria-label="") OK

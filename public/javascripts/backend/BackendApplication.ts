@@ -1,8 +1,12 @@
-/// <reference path="../../../typings/tsd.d.ts" />
+/**
+ Copyright (c) 2016 7ThCode.
+ */
 
-'use strict';
+/// <reference path="../../../typings/browser.d.ts" />
 
-var app:any = angular.module('BackendApplication', ['ui.router', 'AuthControllers', 'ArticleControllers', 'ContentControllers', 'ExperimentQueryControllers']);
+"use strict";
+
+let app:any = angular.module('BackendApplication', ['ui.router', 'AuthControllers', 'ArticleControllers','FileControllers','ContentControllers']);
 
 app.run(['$rootScope',
     function ($rootScope) {
@@ -16,7 +20,13 @@ app.config(['$stateProvider', '$urlRouterProvider', '$compileProvider', '$httpPr
     ($stateProvider:any, $urlRouterProvider:any, $compileProvider:any, $httpProvider:any):void => {
         $compileProvider.debugInfoEnabled(false);
         $httpProvider.defaults.headers.common = {'x-requested-with': 'XMLHttpRequest'};
- //       $urlRouterProvider.otherwise('/');
+        $urlRouterProvider.otherwise('/');
     }]);
 
 
+app.config(['$mdThemingProvider', ($mdThemingProvider:any):void => {
+    $mdThemingProvider.theme('default')
+        .primaryPalette('blue-grey')
+        .accentPalette('deep-orange')
+        .warnPalette('red');
+}]);

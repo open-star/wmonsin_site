@@ -3,24 +3,117 @@ extends layout.jade
 block content
     body(ng-app="BackendApplication", ng-controller="LoginController")
         md-content.background
+            md-toolbar
+                .md-toolbar-tools
+                    if !user
+                        div
+                            //md-button(ng-click='showRegisterDialog()') Reg
+                            md-button(ng-click="showLoginDialog()") ログイン
+                    if user
+                        div
+                            if provider == "local"
+                                //md-button(ng-click="showPasswordDialog()") Pass
+                                md-button(ng-click='Logout()') ログアウト
+                            else
+                                md-button(ng-click='Logout()') ログアウト
+
+                            //md-button(ng-click='sendmail()') sendmail
+
             md-card.box-edge
-            if !user
-                div
-                    md-button(ng-click='showRegisterDialog()') Reg
-                    md-button(ng-click="showLoginDialog()") Login
-            if user
-                div
-                    if provider == "local"
-                        md-button(ng-click="showPasswordDialog()") Pass
-                        md-button(ng-click='Logout()') logout
-                    else
-                        md-button(ng-click='Logout()') logout
+                md-card-content
+                    md-tabs(md-dynamic-height md-border-bottom)
+                        md-tab(label="記事")
+                            md-content.md-padding
+                                div(ng-controller="ArticleController")
+                                    div(layout="column")
+                                        md-card(flex)
 
-                    md-button(ng-click='sendmail()') sendmail
+                                            md-card-content(layout="row")
+                                                md-input-container.md-block(flex)
+                                                    label タイトル検索
+                                                    input(ng-model='title', type='text', md-maxlength="30", placeholder='タイトル')
 
-            md-card.box-edge(ng-controller="ContentController")
+                                                md-button.md-fab.md-warn(style="top:75px;", ng-click="showAddArticleDialog();")
+                                                    ng-md-icon(icon="add", aria-label="Add", style="position:relative;top:5px;fill:#ffffff", size="46")
+                                                        md-tooltip 追加
 
-                div(ng-model="about.description")
+
+                                        md-list(flex)
+                                            div(style="overflow:scroll;height:100vh;")
+                                                md-list-item(class="md-3-line" ng-repeat="article in articles" ng-click="null")
+                                                    div(layout="row", flex, layout-align="space-between  center")
+                                                        div(flex="5")
+                                                            img.md-avatar(src="/file/{{article.image}}")
+                                                        div(flex="40") {{article.title}}
+                                                        div(flex="15") {{article.date | date}}
+                                                        div(layout="row", layout-align="space-between center")
+                                                            md-button.md-fab.md-mini.md-warn(ng-hide="article.publish", ng-click="showPublishArticleDialog(article._id, true)")
+                                                                ng-md-icon(icon="remove_red_eye", aria-label="Publish", style="position:relative;top:5px;fill:#000000", size="30")
+                                                                    md-tooltip 公開
+                                                            md-button.md-fab.md-mini.md-info(ng-show="article.publish", ng-click="showPublishArticleDialog(article._id, false)")
+                                                                ng-md-icon(icon="remove_red_eye", aria-label="Hide", style="position:relative;top:5px;fill:#ffffff", size="30")
+                                                                    md-tooltip 非公開
+                                                            md-button.md-fab.md-mini.md-primary(ng-click="showEditArticleDialog(article._id)")
+                                                                ng-md-icon(icon="edit", aria-label="edit", style="position:relative;top:5px;fill:#ffffff", size="30")
+                                                                    md-tooltip 編集
+                                                            md-button.md-fab.md-mini.md-warn(ng-click="showDeleteArticleDialog(article._id)")
+                                                                ng-md-icon(icon="delete", aria-label="delete", style="position:relative;top:5px;fill:#ffffff", size="30")
+                                                                    md-tooltip 削除
 
 
+                                        // Virtual
+                                        //.virtualRepeatdemoInfiniteScroll(ng-cloak='')
+                                                md-content(layout='column')
+                                                    md-virtual-repeat-container#vertical-container
+
+
+                                                        md-list-item(class="md-3-line" md-virtual-repeat='item in infiniteItems' ng-click="null",md-on-demand='')
+                                                            div(layout="row", flex, layout-align="space-between  center")
+                                                                div(flex="10")
+                                                                    img.md-avatar(src="")
+                                                                div(flex="50") title
+                                                                div(layout="row", layout-align="space-between center")
+                                                                    md-button.md-fab.md-mini.md-warn(ng-hide="true", ng-click="showPublishArticleDialog(1, true)")
+                                                                        ng-md-icon(icon="remove_red_eye", aria-label="Publish", style="position:relative;top:5px;fill:#000000", size="30")
+                                                                            md-tooltip To Publish
+                                                                    md-button.md-fab.md-mini.md-info(ng-show="true", ng-click="showPublishArticleDialog(1, false)")
+                                                                        ng-md-icon(icon="remove_red_eye", aria-label="Hide", style="position:relative;top:5px;fill:#ffffff", size="30")
+                                                                            md-tooltip To Hide
+                                                                    md-button.md-fab.md-mini.md-primary(ng-click="showEditArticleDialog(1)")
+                                                                        ng-md-icon(icon="edit", aria-label="edit", style="position:relative;top:5px;fill:#ffffff", size="30")
+                                                                            md-tooltip Edit
+                                                                    md-button.md-fab.md-mini.md-warn(ng-click="showDeleteArticleDialog(a)")
+                                                                        ng-md-icon(icon="delete", aria-label="delete", style="position:relative;top:5px;fill:#ffffff", size="30")
+                                                                            md-tooltip Delete
+
+
+
+                        md-tab(label="画像")
+                            md-content.md-padding
+                                div(ng-controller="FileController")
+                                    div(layout="row")
+                                        md-card(flex)
+                                            md-card-content(layout="row")
+                                                md-input-container.md-block(flex)
+                                                    label ファイル名検索
+                                                    input(ng-model='filename', type='text', md-maxlength="30", placeholder='ファイル名')
+
+                                                div(flow-init flow-name="uploader.flow", flow-files-added="createFile($files);")
+                                                    md-button.md-fab.md-warn(style="top:75px;",flow-btn type="file", flow-attrs="{accept:'.png,.jpg,.gif'}")
+                                                        ng-md-icon(icon="add", aria-label="Add", style="position:relative;top:5px;fill:#ffffff", size="46")
+                                                            md-tooltip 追加
+
+                                    div(style="overflow:scroll;height:100vh;")
+                                        md-grid-list(md-cols="1" md-cols-sm="3" md-cols-md="4" md-cols-gt-md="6" md-row-height-gt-md="4:5" md-row-height="4:5" md-gutter="8px" md-gutter-gt-sm="4px")
+                                            md-grid-tile(style="background: #CFD8DC;", ng-repeat="file in files", md-rowspan="1", md-colspan="1", md-colspan-sm="1", md-colspan-xs="1")
+                                                md-grid-tile-header
+                                                    div {{file.filename}}
+
+                                                img(style="width:80%", ng-src="/file/" + '{{file.filename}}')
+                                                md-grid-tile-footer(layout-align="center center")
+                                                    div(layout='row')
+                                                        //div(flow-init flow-name="uploader.flow", flow-files-added="updateFile($files, file.filename);")
+                                                            md-button.md-raised.md-primary(flow-btn type="file") 更新
+                                                        div
+                                                            md-button.md-raised.md-warn(ng-click="deleteFile(file.filename);") 削除
 

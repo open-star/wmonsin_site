@@ -1,3 +1,5 @@
+/// <reference path="../../typings/browser.d.ts" />
+
 'use strict';
 
 var webpaycontroller:angular.IModule = angular.module('WebPayControllers', ["ngResource", 'ngMessages', 'ui.bootstrap']);

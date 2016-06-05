@@ -1,8 +1,6 @@
-/// <reference path="../typings/tsd.d.ts" />
+/// <reference path="../typings/main.d.ts" />
 
 'use strict';
-
-declare function require(x: string): any;
 
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;

@@ -1,14 +1,14 @@
 md-dialog.box-edge(flex)
     md-toolbar
         .md-toolbar-tools(layout="row", layout-align="end center")
-            h3(style="color:white;") 記事削除
+            h3(style="color:white;") 公開
             span(flex)
             md-button.md-fab.md-mini.md-warn(ng-click='cancel()', aria-label="Cancel", style="position:relative;top:20px;")
                 ng-md-icon.iconfill(icon="clear", style="position:relative;top:4px;", size="20")
-                md-tooltip 削除
+                md-tooltip キャンセル
 
     md-dialog-content.layout-padding
-        div 記事を削除します。
+        div 公開します
 
     md-dialog-actions(layout="row")
-        md-button.md-raised.md-primary(ng-click='ok()', ng-disabled="validate.$invalid", aria-label="") 削除
+        md-button.md-raised.md-primary(ng-click='ok()', ng-disabled="validate.$invalid", aria-label="") 公開

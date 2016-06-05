@@ -88,10 +88,49 @@ script(type='text/javascript', src='/bower_components/bootstrap/dist/js/bootstra
 script(type="text/javascript", src="/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js")
 script(type='text/javascript', src='/bower_components/lodash/lodash.min.js')
 script(type="text/javascript", src="https://js.webpay.jp/v1/")
+script(type='text/javascript', src='/bower_components/slick-carousel/slick/slick.min.js')
+
 script(type='text/javascript', src='javascripts/ViewApplication.js')
 script(type='text/javascript', src='javascripts/ViewControllers.js')
 script(type='text/javascript', src='javascripts/WebPayControllers.js')
 script(type='text/javascript', src='javascripts/ExperimentControllers.js')
+
+script.
+    $(function () {
+
+        $('.slidertop').slick({
+            slidesToShow: 3,
+            slidesToScroll: 1,
+            autoplay: true,
+            autoplaySpeed: 3000,
+            dots: true,
+            responsive: [
+                {
+                    breakpoint: 1024,
+                    settings: {
+                        slidesToShow: 3,
+                        slidesToScroll: 1
+                    }
+                },
+                {
+                    breakpoint: 600,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 1
+                    }
+                },
+                {
+                    breakpoint: 480,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1
+                    }
+                }
+            ]
+        });
+    });
+
+
 script.
     (function (i, s, o, g, r, a, m) {
         i['GoogleAnalyticsObject'] = r;

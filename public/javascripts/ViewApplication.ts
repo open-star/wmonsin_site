@@ -1,4 +1,4 @@
-/// <reference path="../../typings/tsd.d.ts" />
+/// <reference path="../../typings/browser.d.ts" />
 
 'use strict';
 
@@ -11,11 +11,6 @@ app.run(['$rootScope', ($rootScope) => {
     }
 ]);
 
-app.config(["$sceDelegateProvider",($sceDelegateProvider:any):void => {
-
-}]);
-
-
 app.config([ '$compileProvider', '$httpProvider',
     ($compileProvider:any, $httpProvider:any):void => {
 
@@ -25,3 +20,10 @@ app.config([ '$compileProvider', '$httpProvider',
 
     }]);
 
+app.config(["$sceDelegateProvider",($sceDelegateProvider:any):void => {
+    $sceDelegateProvider.resourceUrlWhitelist([
+        'self',
+        'https://www.youtube.com/embed/**',
+        'https://i.ytimg.com/vi/**'
+    ]);
+}]);

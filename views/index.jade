@@ -104,15 +104,17 @@ block content
                         //.tp-caption.lfl.hidden-xs(data-x='left', data-y='center', data-hoffset='0', data-voffset='160', data-speed='1000', data-start='1800', data-easing='Power4.easeOut')
                           a.btn.btn-primary.inverse.btn-lg(href='#') Purchase
 
-
     .wrapper
         section#information
             .container
                 .section-heading.scrollpoint.sp-effect3
                     h1 お知らせ
                     .divider
-                    p.noto アルファ版で公開しています。2015年3月にはベータ版、4月には正式版として公開する予定です。
-                    p.noto テスト運用にご協力頂ける医療機関様を募集しております。お気軽にお問い合わせ下さい。
+                    p.noto(style="font-size:2vw;") 2015年4月に正式版を公開したところですが、次期バージョンの開発に取りかかっています。
+                    p.noto(style="font-size:2vw;") 現在のバージョンは、患者様が院内にて診療所のタブレットで問診の入力をする運用でしたが、
+                    p.noto(style="font-size:2vw;") 次期バージョンでは、患者様が自宅等の院外で自分のスマホ、タブレット、パソコンで問診の入力が
+                    p.noto(style="font-size:2vw;") できるようにします。また、同時に診療の予約ができるようにします。ご期待下さい。
+                    p.noto(style="font-size:2vw;") 2016年6月1日
         section#about
             .container
                 .section-heading.scrollpoint.sp-effect3
@@ -220,8 +222,10 @@ block content
                             a.pull-left(href='#')
                                 i.fa.fa-users.fa-2x
                             .media-body
-                                h3.media-heading 日レセと連動
-                                |                                 標準で、日医標準レセプトソフトの受付情報を取得します。
+                                h3.media-heading 日レセと連動(Option)
+                                | 日レセ（日医標準レセプトソフト）より新規患者、または更新患者の情報を取得します。
+                                br
+                                | 問診の回答内容で日レセの患者情報（禁忌、アレルギー、感染症）を更新します。
                         .media.active.feature
                             a.pull-left(href='#')
                                 i.fa.fa-pencil-square-o.fa-2x

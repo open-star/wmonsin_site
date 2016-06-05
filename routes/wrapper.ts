@@ -1,22 +1,24 @@
-/// <reference path="../typings/tsd.d.ts" />
+/**
+ Copyright (c) 2016 7ThCode.
+ */
+
+/// <reference path="../typings/main.d.ts" />
 
 'use strict';
 
-declare function require(x:string):any;
-
-var fs:any = require('fs');
-var text:any = fs.readFileSync('config/config.json', 'utf-8');
-var config:any = JSON.parse(text);
+const fs:any = require('fs');
+const text:any = fs.readFileSync('config/config.json', 'utf-8');
+const config:any = JSON.parse(text);
 //config.dbaddress = process.env.DB_PORT_27017_TCP_ADDR || 'localhost';
 
-var log4js:any = require('log4js');
+const log4js:any = require('log4js');
 log4js.configure("config/logs.json");
-var logger:any = log4js.getLogger('request');
+const logger:any = log4js.getLogger('request');
 logger.setLevel(config.loglevel);
 
-var _:_.LoDashStatic = require('lodash');
+const _:_.LoDashStatic = require('lodash');
 
-var result:any = require('./result');
+const result:any = require('./result');
 
 class Wrapper {
 
@@ -37,6 +39,7 @@ class Wrapper {
     }
 
     public Guard(req:any, res:any, callback:(req:any, res:any) => void):void {
+
         if (req.headers["x-requested-with"] === 'XMLHttpRequest') {
             logger.trace("|enter Guard ");
             res = this.BasicHeader(res, "");
@@ -45,6 +48,7 @@ class Wrapper {
         } else {
             this.SendWarn(res, 1, 'CSRF Attack.', {});
         }
+
     }
 
     public Authenticate(req:any, res:any, code:number, callback:(selfid:any, account:any, res:any) => void):void {
@@ -171,7 +175,7 @@ class Wrapper {
     }
 
     public SendSuccess(res:any, object:any):void {
-        res.send(JSON.stringify(new result(0, object)));
+        res.send(JSON.stringify(object));
     }
 
     public SendSuccessList(res:any, code:number, object:any):void {

@@ -1,39 +1,89 @@
-/// <reference path="../../typings/tsd.d.ts" />
+/**
+ Copyright (c) 2016 7ThCode.
+ */
+
+/// <reference path="../../typings/main.d.ts" />
 
 'use strict';
 
-declare function require(x:string):any;
+const mongoose = require('mongoose');
 
-var mongoose = require('mongoose');
-
-var fs = require('fs');
-var text = fs.readFileSync('config/config.json', 'utf-8');
-var config = JSON.parse(text);
+const fs = require('fs');
+const config = JSON.parse(fs.readFileSync('config/config.json', 'utf-8'));
 //config.dbaddress = process.env.DB_PORT_27017_TCP_ADDR || 'localhost';
 
-var Grid = require('gridfs-stream');
+const Grid = require('gridfs-stream');
 
-var _:_.LoDashStatic = require('lodash');
+const _:_.LoDashStatic = require('lodash');
 
-var result = require('./../result');
-var Wrapper = require('./../wrapper');
-var wrapper = new Wrapper;
+const result = require('./../result');
+const Wrapper = require('./../wrapper');
+const wrapper = new Wrapper;
 
-var log4js = require('log4js');
+const ArticleModel = require('../../models/article');
+
+const log4js = require('log4js');
 log4js.configure("config/logs.json");
-var logger = log4js.getLogger('request');
+const logger = log4js.getLogger('request');
 logger.setLevel(config.loglevel);
 
 class Files {
 
+    static to_mime(filename:string):string {
+        let mime:string = "";
+        let nameparts:string[] = filename.split(".");
+        if (nameparts.length == 2) {
+            let filetype = nameparts[1].toLowerCase();
+            switch (filetype) {
+                case "txt":
+                    mime = "text/plain";
+                    break;
+                case "htm":
+                case "html":
+                    mime = "text/html";
+                    break;
+                case "xml":
+                    mime = "text/xml";
+                    break;
+                case "js":
+                    mime = "text/javascript";
+                    break;
+                case "vbs":
+                    mime = "text/vbscript";
+                    break;
+                case "css":
+                    mime = "text/css";
+                    break;
+                case "gif":
+                    mime = "image/gif";
+                    break;
+                case "jpg":
+                case "jpeg":
+                    mime = "image/jpeg";
+                    break;
+                case "png":
+                    mime = "image/png";
+                    break;
+                case "doc":
+                    mime = "application/msword";
+                    break;
+                case "pdf":
+                    mime = "application/pdf";
+                    break;
+            }
+        }
+        return mime;
+    }
+
     public get_file_name(request:any, response:any, next:any):void {
         try {
             logger.trace("begin /file/:name");
+            let conn = mongoose.createConnection("mongodb://" + config.dbaddress + "/" + config.db);
+            // let conn = mongoose.createConnection("mongodb://" + config.dbuser + ":" + config.dbpassword + "@" + config.dbaddres + "/" + config.db);
 
-            var conn = mongoose.createConnection("mongodb://" + config.dbaddress + "/" + config.dbname);
             conn.once('open', (error:any):void => {
                 if (!error) {
-                    var gfs = Grid(conn.db, mongoose.mongo); //missing parameter
+                    let gfs = Grid(conn.db, mongoose.mongo); //missing parameter
                     if (gfs) {
                         conn.db.collection('fs.files', (error:any, collection:any):void => {
                             if (!error) {
@@ -41,10 +91,11 @@ class Files {
                                     collection.findOne({filename: request.params.name}, (error:any, item:any):void => {
                                         if (!error) {
                                             if (item) {
-                                                var gfs = Grid(conn.db, mongoose.mongo); //missing parameter
+                                                let gfs = Grid(conn.db, mongoose.mongo); //missing parameter
                                                 if (gfs) {
-                                                    var readstream = gfs.createReadStream({filename: request.params.name});
+                                                    let readstream = gfs.createReadStream({filename: request.params.name});
                                                     if (readstream) {
+                                                        response.setHeader('Content-Type', item.metadata.type);
                                                         readstream.pipe(response);
                                                         readstream.on('close', (file:any):void => {
                                                             conn.db.close();
@@ -102,13 +153,15 @@ class Files {
     public post_file_name(request:any, response:any):void {
         logger.trace("begin /file/:name");
         wrapper.Guard(request, response, (request:any, response:any):void => {
-            var number:number = 24000;
-            wrapper.Authenticate(request, response, number, (selfid:any, account:any, response:any):void  => {
-                var conn = mongoose.createConnection("mongodb://" +  config.dbaddress + "/" + config.dbname);
+            let number:number = 24000;
+            wrapper.Authenticate(request, response, number, (selfid:any, account:any, response:any):void => {
+                let conn = mongoose.createConnection("mongodb://" + config.dbaddress + "/" + config.db);
+                //    let conn = mongoose.createConnection("mongodb://" + config.dbuser + ":" + config.dbpassword + "@" + config.dbaddres + "/" + config.db);
+
                 if (conn) {
-                    conn.once('open', (error:any):void  => {
+                    conn.once('open', (error:any):void => {
                         if (!error) {
-                            var gfs = Grid(conn.db, mongoose.mongo); //missing parameter
+                            let gfs = Grid(conn.db, mongoose.mongo); //missing parameter
                             if (gfs) {
                                 conn.db.collection('fs.files', (error:any, collection:any):void => {
                                     if (!error) {
@@ -116,9 +169,8 @@ class Files {
                                             collection.findOne({filename: request.params.name}, (error:any, item:any):void => {
                                                 if (!error) {
                                                     if (!item) {
-
-                                                        var parseDataURL = (dataURL:any):any => {
-                                                            var rslt = {
+                                                        let parseDataURL = (dataURL:any):any => {
+                                                            let rslt = {
                                                                 mediaType: null,
                                                                 encoding: null,
                                                                 isBase64: null,
@@ -133,17 +185,18 @@ class Files {
                                                             return rslt;
                                                         };
 
-                                                        var info = parseDataURL(request.body.url);
-                                                        var chunk = info.isBase64 ? new Buffer(info.data, 'base64') : new Buffer(unescape(info.data), 'binary');
-                                                        var writestream = gfs.createWriteStream({filename: request.params.name});
+                                                        let info = parseDataURL(request.body.url);
+                                                        let chunk = info.isBase64 ? new Buffer(info.data, 'base64') : new Buffer(unescape(info.data), 'binary');
+                                                        let writestream = gfs.createWriteStream({filename: request.params.name, metadata:{type:Files.to_mime(request.params.name)}});
                                                         if (writestream) {
                                                             writestream.write(chunk);
                                                             writestream.end();
                                                             writestream.on('close', (file:any):void => {
                                                                 conn.db.close();
-                                                                wrapper.SendSuccess(response, {code:0});
+                                                                wrapper.SendSuccess(response, {code: 0});
                                                                 logger.trace("end /file/:name");
                                                             });
+
                                                         } else {
                                                             conn.db.close();
                                                             wrapper.SendFatal(response, number + 40, "stream not open", {});
@@ -185,24 +238,25 @@ class Files {
     public put_file_name(request:any, response:any):void {
         logger.trace("begin /file/:name");
         wrapper.Guard(request, response, (request:any, response:any):void => {
-            var number:number = 25000;
+            let number:number = 25000;
             wrapper.Authenticate(request, response, number, (selfid:any, account:any, response:any):void => {
-                var conn = mongoose.createConnection("mongodb://" +  config.dbaddress + "/" + config.dbname);
+                let conn = mongoose.createConnection("mongodb://" + config.dbaddress + "/" + config.db);
+                //    let conn = mongoose.createConnection("mongodb://" + config.dbuser + ":" + config.dbpassword + "@" + config.dbaddres + "/" + config.db);
+
                 if (conn) {
-                    conn.once('open', (error:any):void  => {
+                    conn.once('open', (error:any):void => {
                         if (!error) {
-                            var gfs = Grid(conn.db, mongoose.mongo); //missing parameter
+                            let gfs = Grid(conn.db, mongoose.mongo); //missing parameter
                             if (gfs) {
-                                conn.db.collection('fs.files', (error:any, collection:any):void  => {
+                                conn.db.collection('fs.files', (error:any, collection:any):void => {
                                     if (!error) {
                                         if (collection) {
                                             collection.findOne({filename: request.params.name}, (error:any, item:any):void => {
                                                 if (!error) {
                                                     if (item) {
                                                         collection.remove({filename: request.params.name}, () => {
-
-                                                            var parseDataURL = (dataURL:any):any => {
-                                                                var rslt = {
+                                                            let parseDataURL = (dataURL:any):any => {
+                                                                let rslt = {
                                                                     mediaType: null,
                                                                     encoding: null,
                                                                     isBase64: null,
@@ -217,15 +271,15 @@ class Files {
                                                                 return rslt;
                                                             };
 
-                                                            var info = parseDataURL(request.body.url);
-                                                            var chunk = info.isBase64 ? new Buffer(info.data, 'base64') : new Buffer(unescape(info.data), 'binary');
-                                                            var writestream = gfs.createWriteStream({filename: request.params.name});
+                                                            let info = parseDataURL(request.body.url);
+                                                            let chunk = info.isBase64 ? new Buffer(info.data, 'base64') : new Buffer(unescape(info.data), 'binary');
+                                                            let writestream = gfs.createWriteStream({filename: request.params.name});
                                                             if (writestream) {
                                                                 writestream.write(chunk);
                                                                 writestream.end();
                                                                 writestream.on('close', (file:any):void => {
                                                                     conn.db.close();
-                                                                    wrapper.SendSuccess(response, {code:0});
+                                                                    wrapper.SendSuccess(response, {code: 0});
                                                                     logger.trace("end /file/:name");
                                                                 });
                                                             } else {
@@ -269,28 +323,42 @@ class Files {
     public delete_file_name(request:any, response:any):void {
         logger.trace("begin /file/:name");
         wrapper.Guard(request, response, (request:any, response:any):void => {
-            var number:number = 26000;
-            wrapper.Authenticate(request, response, number, (selfid:any, account:any, response:any) => {
-                var conn = mongoose.createConnection("mongodb://" +  config.dbaddress + "/" + config.dbname);
-                if (conn) {
-                    conn.once('open', (error:any):void => {
-                        if (!error) {
-                            var gfs = Grid(conn.db, mongoose.mongo); //missing parameter
-                            if (gfs) {
-                                conn.db.collection('fs.files', (error:any, collection:any):void => {
+            let number:number = 26000;
+            wrapper.Authenticate(request, response, number, (selfid:any, account:any, response:any):void => {
+                wrapper.Find(response, number, ArticleModel, {image:request.params.name}, {}, {}, (response:any, docs:any):void  => {
+                    if (docs) {
+                        if (docs.length === 0) {
+                            let conn = mongoose.createConnection("mongodb://" + config.dbaddress + "/" + config.db);
+                            //     let conn = mongoose.createConnection("mongodb://" + config.dbuser + ":" + config.dbpassword + "@" + config.dbaddres + "/" + config.db);
+
+                            if (conn) {
+                                conn.once('open', (error:any):void => {
                                     if (!error) {
-                                        if (collection) {
-                                            collection.findOne({filename: request.params.name}, (error:any, item:any):void => {
+                                        let gfs = Grid(conn.db, mongoose.mongo); //missing parameter
+                                        if (gfs) {
+                                            conn.db.collection('fs.files', (error:any, collection:any):void => {
                                                 if (!error) {
-                                                    if (item) {
-                                                        collection.remove({filename: request.params.name}, ():void => {
-                                                            wrapper.SendSuccess(response, {code:0});
-                                                            conn.db.close();
-                                                            logger.trace("end /file/:name");
+                                                    if (collection) {
+                                                        collection.findOne({filename: request.params.name}, (error:any, item:any):void => {
+                                                            if (!error) {
+                                                                if (item) {
+                                                                    collection.remove({filename: request.params.name}, ():void => {
+                                                                        wrapper.SendSuccess(response, {code: 0});
+                                                                        conn.db.close();
+                                                                        logger.trace("end /file/:name");
+                                                                    });
+                                                                } else {
+                                                                    conn.db.close();
+                                                                    wrapper.SendWarn(response, number + 1, "not found", {});
+                                                                }
+                                                            } else {
+                                                                conn.db.close();
+                                                                wrapper.SendError(response, number + 100, error.message, error);
+                                                            }
                                                         });
                                                     } else {
                                                         conn.db.close();
-                                                        wrapper.SendWarn(response, number + 1, "not found", {});
+                                                        wrapper.SendFatal(response, number + 30, "no collection", {});
                                                     }
                                                 } else {
                                                     conn.db.close();
@@ -299,7 +367,7 @@ class Files {
                                             });
                                         } else {
                                             conn.db.close();
-                                            wrapper.SendFatal(response, number + 30, "no collection", {});
+                                            wrapper.SendFatal(response, number + 20, "gfs error", {});
                                         }
                                     } else {
                                         conn.db.close();
@@ -307,17 +375,13 @@ class Files {
                                     }
                                 });
                             } else {
-                                conn.db.close();
-                                wrapper.SendFatal(response, number + 20, "gfs error", {});
+                                wrapper.SendError(response, number + 10, "connection error", {});
                             }
                         } else {
-                            conn.db.close();
-                            wrapper.SendError(response, number + 100, error.message, error);
+                            wrapper.SendWarn(response, 1, "inuse", {});
                         }
-                    });
-                } else {
-                    wrapper.SendError(response, number + 10, "connection error", {});
-                }
+                    }
+                });
             });
         });
     }
@@ -325,23 +389,25 @@ class Files {
     public get_file_query_query(request:any, response:any):void {
         logger.trace("/file/query/:query");
         wrapper.Guard(request, response, (request:any, response:any):void => {
-            var number:number = 27000;
-            wrapper.Authenticate(request, response, number, (selfid:any, account:any, response:any) => {
-                var conn = mongoose.createConnection("mongodb://" +  config.dbaddress + "/" + config.dbname);
+            let number:number = 27000;
+            wrapper.Authenticate(request, response, number, (selfid:any, account:any, response:any):void => {
+                let conn = mongoose.createConnection("mongodb://" + config.dbaddress + "/" + config.db);
+                //       let conn = mongoose.createConnection("mongodb://" + config.dbuser + ":" + config.dbpassword + "@" + config.dbaddres + "/" + config.db);
+
                 if (conn) {
                     conn.once('open', (error:any):void => {
                         if (!error) {
-                            var gfs = Grid(conn.db, mongoose.mongo); //missing parameter
+                            let gfs = Grid(conn.db, mongoose.mongo); //missing parameter
                             if (gfs) {
                                 conn.db.collection('fs.files', (error:any, collection:any):void => {
                                     if (!error) {
                                         if (collection) {
-                                            var query = JSON.parse(decodeURIComponent(request.params.query));
+                                            let query = JSON.parse(decodeURIComponent(request.params.query));
                                             collection.find(query).toArray((error:any, docs:any):void => {
                                                 if (!error) {
                                                     conn.db.close();
                                                     logger.trace("end /file/query/:query");
-                                                    wrapper.SendSuccessList(response,0,"", docs);
+                                                    wrapper.SendSuccessList(response, 0, docs);
                                                 } else {
                                                     conn.db.close();
                                                     wrapper.SendError(response, number + 100, error.message, error);

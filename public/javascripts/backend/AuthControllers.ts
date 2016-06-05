@@ -1,8 +1,45 @@
-/// <reference path="../../../typings/tsd.d.ts" />
+/**
+ Copyright (c) 2016 7ThCode.
+ */
 
-'use strict';
+/// <reference path="../../../typings/browser.d.ts" />
 
-var authcontroller:angular.IModule = angular.module('AuthControllers', ["ngResource", 'ngMessages', 'ngAnimate', 'ngMaterial','ngMdIcons', 'ngSanitize']);
+"use strict";
+
+class AuthLib {
+
+    static List(resource:any, query:any, success:(value:any) => void):void {
+        resource.query({query: encodeURIComponent(JSON.stringify(query))}, (data:any):void => {
+            if (data) {
+                if (data.code == 0) {
+                    success(data.value);
+                }
+            }
+        });
+    }
+
+    static All(resource:any, success:(value:any) => void):void {
+        resource.get((data:any):void => {
+            if (data) {
+                if (data.code == 0) {
+                    success(data.value);
+                }
+            }
+        });
+    }
+
+    static Read(resource:any, query:any, success:(value:any) => void):void {
+        resource.read({query: encodeURIComponent(JSON.stringify(query))}, (data:any):void => {
+            if (data) {
+                if (data.code == 0) {
+                    success(data);
+                }
+            }
+        });
+    }
+}
+
+let authcontroller:angular.IModule = angular.module('AuthControllers', ["ngResource", 'ngMessages', 'ngAnimate', 'ngMaterial','ngMdIcons', 'ngSanitize']);
 
 // resources
 authcontroller.factory('Register', ['$resource',
@@ -88,36 +125,6 @@ authcontroller.directive("compareTo", ():any => {
         }
     };
 });
-
-function List(resource:any, query:any, success:(value:any) => void):void {
-    resource.query({query: encodeURIComponent(JSON.stringify(query))}, (data:any):void => {
-        if (data) {
-            if (data.code == 0) {
-                success(data.value);
-            }
-        }
-    });
-}
-
-function All(resource:any, success:(value:any) => void):void {
-    resource.get((data:any):void => {
-        if (data) {
-            if (data.code == 0) {
-                success(data.value);
-            }
-        }
-    });
-}
-
-function Read(resource:any, query:any, success:(value:any) => void):void {
-    resource.read({query: encodeURIComponent(JSON.stringify(query))}, (data:any):void => {
-        if (data) {
-            if (data.code == 0) {
-                success(data);
-            }
-        }
-    });
-}
 
 authcontroller.controller('LoginController', ["$scope", "$rootScope", "$state", "$window", "$mdDialog", 'Login', 'Logout', 'Register', 'Password',
     ($scope:any, $rootScope:any, $state:any, $window:any, $mdDialog:any, Login:any, Logout:any, Register:any, Password:any):void => {
@@ -238,7 +245,7 @@ authcontroller.controller('LoginController', ["$scope", "$rootScope", "$state", 
         };
 
         $scope.$on('Login', ():void => {
-            $window.location.href = "http://" + $window.location.host + "/";
+            $window.location.href = "http://" + $window.location.host + "/backend/";
         });
 
         $scope.$on('Logout', ():void => {
@@ -272,13 +279,15 @@ authcontroller.controller('LoginDialogController', ['$scope', '$mdDialog', '$mdT
             var account = new Login();
             account.username = items.username;
             account.password = items.password;
+            $scope.progress = true;
             account.$login((account:any):void => {
                 if (account) {
                     if (account.code === 0) {
                         $mdDialog.hide(account);
                     } else {
-                        $mdToast.show($mdToast.simple().content(account.message));
+                        $mdToast.show($mdToast.simple().content("user not found, or password incorrect."));
                     }
+                    $scope.progress = false;
                 } else {
                     $mdToast.show($mdToast.simple().content("network error(login)"));
                 }

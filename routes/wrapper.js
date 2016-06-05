@@ -1,4 +1,7 @@
-/// <reference path="../typings/tsd.d.ts" />
+/**
+ Copyright (c) 2016 7ThCode.
+ */
+/// <reference path="../typings/main.d.ts" />
 'use strict';
 var fs = require('fs');
 var text = fs.readFileSync('config/config.json', 'utf-8');
@@ -170,7 +173,7 @@ var Wrapper = (function () {
         res.send(JSON.stringify(new result(code, object)));
     };
     Wrapper.prototype.SendSuccess = function (res, object) {
-        res.send(JSON.stringify(new result(0, object)));
+        res.send(JSON.stringify(object));
     };
     Wrapper.prototype.SendSuccessList = function (res, code, object) {
         res.send(JSON.stringify(new result(code, object)));
@@ -190,6 +193,6 @@ var Wrapper = (function () {
         return result;
     };
     return Wrapper;
-})();
+}());
 module.exports = Wrapper;
 //# sourceMappingURL=wrapper.js.map

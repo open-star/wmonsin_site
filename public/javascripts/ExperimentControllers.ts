@@ -1,3 +1,5 @@
+/// <reference path="../../typings/browser.d.ts" />
+
 'use strict';
 
 var experimentcontroller:angular.IModule = angular.module('ExperimentControllers', ["ngResource", 'ngMessages', 'ui.bootstrap']);

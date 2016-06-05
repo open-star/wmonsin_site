@@ -7,16 +7,13 @@ block content
             .md-toolbar-tools
                if !user
                   div
-                     md-button(ng-click='showRegisterDialog()') Reg
-                     md-button(ng-click="showLoginDialog()") Login
+                     //md-button(ng-click='showRegisterDialog()') Reg
+                     md-button(ng-click="showLoginDialog()") ログイン
                if user
                   if provider == "local"
-                     md-button(ng-click="showPasswordDialog()") Pass
-                     md-button(ng-click='Logout()') logout
+                     //md-button(ng-click="showPasswordDialog()") Pass
+                     md-button(ng-click='Logout()') ログアウト
                   else
-                     md-button(ng-click='Logout()') logout
+                     md-button(ng-click='Logout()') ログアウト
 
-         md-card.box-edge(ng-controller="ExperimentQueryController")
-            div(ng-repeat="experiment in experiments")
-                  div {{experiment.name}}
-                  div {{experiment.email}}
+         md-card.box-edge

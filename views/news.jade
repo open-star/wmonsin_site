@@ -1,0 +1,62 @@
+extends layout
+
+block content
+
+    .pre-loader
+        .load-con
+            img.animated.fadeInDown(src='img/freeze/logo.png', alt='')
+            .spinner
+                .bounce1
+                .bounce2
+                .bounce3
+    header
+        nav.navbar.navbar-default.navbar-fixed-top(role='navigation')
+            .container
+                // Brand and toggle get grouped for better mobile display
+                .navbar-header
+                    button.navbar-toggle(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1')
+                        span.fa.fa-bars.fa-lg
+                    a.navbar-brand(href='index.html')
+                        img.logo(src='img/openstar1.svg', alt='')
+                // Collect the nav links, forms, and other content for toggling
+                #bs-example-navbar-collapse-1.collapse.navbar-collapse
+                    ul.nav.navbar-nav.navbar-right
+                        li
+                            a.noto(href="/") Home
+                        li
+                            a.noto(href='/index#support') お問い合わせ
+                        //li
+                            a(href='/articles') 価格
+                        li
+                            a.noto(href='/privacy') プライバシーポリシー
+                // /.navbar-collapse
+            // /.container
+        // RevSlider
+        div(style="height: 150px;")
+
+    .wrapper
+        section#news.description_content.back-gray(style="padding: 20px 0 80px 0;")
+            .text-content.container
+                .row
+                    .col-sm-12.wow.fadeIn
+                        h1.font-gray.cinzel.title NEWS
+                        .row
+                            .col-sm-12
+                                    each article in articles
+                                        .row(style="margin:10px 0;")
+                                            .col-sm-4
+                                                img.img-responsive(style="margin:10px;", src="file/#{article.image}")
+                                                //a(href="https://www.youtube.com/watch?v=2CEVNodkmSk",style="color:black;")
+                                            .col-sm-8
+                                                .row
+                                                    h2.noto #{article.title}
+                                                    table
+                                                        tr
+                                                            td(style="border: none;width:100%;word-break: break-all;") #{article.description}
+                                        .divider
+
+
+    footer(style="padding-top:40px;")
+        include parts/footer
+
+    script(type="application/ld+json")

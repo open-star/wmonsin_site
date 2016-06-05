@@ -1,34 +1,38 @@
+/**
+ Copyright (c) 2016 7ThCode.
+ */
+
+/// <reference path="../typings/main.d.ts" />
+
 'use strict';
 
-declare function require(x:string):any;
+const express:any = require('express');
+const passport:any = require('passport');
+const mongoose:any = require('mongoose');
+const _:_.LoDashStatic = require('lodash');
 
-var express = require('express');
-var passport:any = require('passport');
-var mongoose:any = require('mongoose');
-var _:_.LoDashStatic = require('lodash');
+const flow:any = require('flow_js').Flow;
 
-var flow:any = require('flow_js').Flow;
-
-var fs:any = require('fs');
-var text:any = fs.readFileSync('config/config.json', 'utf-8');
-var config:any = JSON.parse(text);
+const fs:any = require('fs');
+const text:any = fs.readFileSync('config/config.json', 'utf-8');
+const config:any = JSON.parse(text);
 
 //var contenttext:any = fs.readFileSync('config/content.json', 'utf-8');
 //var content:any = JSON.parse(contenttext);
 
-var Wrapper:any = require('./wrapper');
-var AuthController:any = require('./controllers/auth_controller');
-var AccountController:any = require('./controllers/account_controller');
-var ArticleController:any = require('./controllers/article_controller');
-var FileController:any = require('./controllers/file_controller');
-var ContentController:any = require('./controllers/content_controller');
-var MailerController:any = require('./controllers/mailer_controller');
-var WebPayController:any = require('./controllers/webpay_controller');
-var ExperimentController:any = require('./controllers/experiment_controller');
+const Wrapper:any = require('./wrapper');
+const AuthController:any = require('./controllers/auth_controller');
+const AccountController:any = require('./controllers/account_controller');
+const ArticleController:any = require('./controllers/article_controller');
+const FileController:any = require('./controllers/file_controller');
+const ContentController:any = require('./controllers/content_controller');
+const MailerController:any = require('./controllers/mailer_controller');
+const WebPayController:any = require('./controllers/webpay_controller');
+const ExperimentController:any = require('./controllers/experiment_controller');
 
-var LocalAccount:any = require('../models/localaccount');
-var ContentModel:any = require('../models/content');
-var ArticleModel = require('../models/article');
+const LocalAccount:any = require('../models/localaccount');
+const ContentModel:any = require('../models/content');
+//const ArticleModel = require('../models/article');
 
 
 var wrapper:any = new Wrapper;
@@ -56,11 +60,12 @@ wrapper.FindOne(null, 1000, LocalAccount, {username: config.user}, (res:any, acc
             config.password,
             (error:any):void => {
                 if (!error) {
+                    //     var contentrecord = new ContentModel();
+                    //     contentrecord.content = content;
+                    //     contentrecord.save((error:any):void => {});
                 }
             });
-        var contentrecord = new ContentModel();
-        contentrecord.content = content;
-        contentrecord.save((error:any):void => {});
+
     } else {
     }
 });
@@ -134,10 +139,12 @@ class Browser {
     }
 }
 
+//! front
+const ArticleModel = require('../models/article');
 
 /* GET home page. */
-router.get('/', function (req, res, next) {
-    res.render('index', {});
+router.get('/', function (req, response, next) {
+    response.render('index', {});
 });
 
 /* GET home page. */
@@ -158,6 +165,18 @@ router.get('/privacy', function (req, res, next) {
 /* GET home page. */
 router.get('/law', function (req, res, next) {
     res.render('law', {});
+});
+
+/* GET home page. */
+router.get('/terms', function (req, res, next) {
+    res.render('terms', {});
+});
+
+/* GET home page. */
+router.get('/news', function (req, response, next) {
+    wrapper.Find(response, 1, ArticleModel, {publish:true}, {}, {sort: {date: -1}}, (response:any, articles:any):void => {
+        response.render('news', {articles: articles});
+    });
 });
 
 /* GET home page. */
@@ -253,8 +272,20 @@ router.get('/backend/dialogs/article/editarticledialog', (request:any, response:
     response.render('backend/dialogs/article/editarticledialog');
 });
 
+router.get('/backend/dialogs/article/publisharticledialog', (request:any, response:any):void => {
+    response.render('backend/dialogs/article/publisharticledialog');
+});
+
+router.get('/backend/dialogs/article/unpublisharticledialog', (request:any, response:any):void => {
+    response.render('backend/dialogs/article/unpublisharticledialog');
+});
+
 router.get('/backend/dialogs/article/deletearticledialog', (request:any, response:any):void => {
     response.render('backend/dialogs/article/deletearticledialog');
+});
+
+router.get('/backend/dialogs/file/picturedeletedialog', (request:any, response:any):void => {
+    response.render('backend/dialogs/file/picturedeletedialog');
 });
 
 router.get('/backend/', (request:any, response:any):void => {
@@ -276,6 +307,22 @@ router.get('/backend/', (request:any, response:any):void => {
         response.render('backend/auth', {user: request.user, provider:"", page: page});
     }
 });
+
+/*! article */
+router.post('/article/accept', article_controller.post_article_accept);
+router.get('/article/:id([0-9a-fA-F]{24})', article_controller.get_article_id);
+router.put('/article/:id([0-9a-fA-F]{24})', article_controller.put_article_id);
+router.delete('/article/:id([0-9a-fA-F]{24})', article_controller.delete_article_id);
+router.get('/article/query/:query', article_controller.get_article_query_query);
+
+
+/*! file */
+router.get('/file/:name', file_controller.get_file_name);
+router.post('/file/:name', file_controller.post_file_name);
+router.put('/file/:name', file_controller.put_file_name);
+router.delete('/file/:name', file_controller.delete_file_name);
+router.get('/file/query/:query', file_controller.get_file_query_query);
+
 
 /* GET home page. */
 router.get('/*', function (req, res, next) {

@@ -5,24 +5,24 @@
  http://opensource.org/licenses/mit-license.php
  */
 
+/// <reference path="typings/main.d.ts" />
+
 'use strict';
 
-declare function require(x:string):any;
-
-var express = require('express');
-var morgan = require('morgan');
+const express = require('express');
+const morgan = require('morgan');
 morgan.format("original", "[:date] :method :url :status :response-time ms");
-var app = express();
+const app = express();
 
-var fs = require('fs');
-var text = fs.readFileSync('config/config.json', 'utf-8');
-var config = JSON.parse(text);
+const fs = require('fs');
+const text = fs.readFileSync('config/config.json', 'utf-8');
+const config = JSON.parse(text);
 //config.dbaddress = process.env.DBADDRESS || 'localhost';
 //config.state = app.get('env');
 
-var log4js = require('log4js');
+const log4js = require('log4js');
 log4js.configure("config/logs.json");
-var logger = log4js.getLogger('request');
+const logger = log4js.getLogger('request');
 logger.setLevel(config.loglevel);
 
 logger.info('-----------------------Invoke---------------------');
@@ -57,28 +57,28 @@ if (config) {
   logger.fatal('config NG.');
 }
 
-var path = require('path');
+const path = require('path');
 if (path) {
   logger.info('path Ok.');
 } else {
   logger.fatal('path NG.');
 }
 
-var favicon = require('serve-favicon');
+const favicon = require('serve-favicon');
 if (favicon) {
   logger.info('favicon Ok.');
 } else {
   logger.fatal('favicon NG.');
 }
 
-var cookieParser = require('cookie-parser');
+const cookieParser = require('cookie-parser');
 if (cookieParser) {
   logger.info('cookieParser Ok.');
 } else {
   logger.fatal('cookieParser NG.');
 }
 
-var bodyParser = require('body-parser');
+const bodyParser = require('body-parser');
 if (bodyParser) {
   logger.info('bodyParser Ok.');
 } else {
@@ -86,21 +86,21 @@ if (bodyParser) {
 }
 
 //passport
-var passport = require('passport');
+const passport = require('passport');
 if (passport) {
   logger.info('passport Ok.');
 } else {
   logger.fatal('passport NG.');
 }
 
-var LocalStrategy = require('passport-local').Strategy;
+const LocalStrategy = require('passport-local').Strategy;
 if (LocalStrategy) {
   logger.info('LocalStrategy Ok.');
 } else {
   logger.fatal('LocalStrategy NG.');
 }
 
-var FacebookStrategy:any = require('passport-facebook').Strategy;
+const FacebookStrategy:any = require('passport-facebook').Strategy;
 if (FacebookStrategy) {
   logger.info('FacebookStrategy Ok.');
 } else {
@@ -109,14 +109,14 @@ if (FacebookStrategy) {
 
 //passport
 
-var session = require('express-session');
+const session = require('express-session');
 if (session) {
   logger.info('session Ok.');
 } else {
   logger.fatal('session NG.');
 }
 
-var routes = require('./routes/index');
+const routes = require('./routes/index');
 if (routes) {
   logger.info('routes Ok.');
 } else {
@@ -132,19 +132,21 @@ logger.info('Jade Start.');
 // uncomment after placing your favicon in /public
 //app.use(favicon(__dirname + '/public/favicon.ico'));
 
-app.use(bodyParser.json());
+app.use(bodyParser.json({limit: '50mb'}));
 app.use(bodyParser.urlencoded({ limit:'50mb',extended: true }));
 //app.use(bodyParser.urlencoded({extended: false}));
 app.use(cookieParser());
 
-var mongoose = require('mongoose');
+const mongoose = require('mongoose');
 if (mongoose) {
   logger.info('mongoose Ok.');
 } else {
   logger.fatal('mongoose NG.');
 }
 
-var MongoStore = require('connect-mongo')(session);
+mongoose.Promise = require('q').Promise;
+
+const  MongoStore = require('connect-mongo')(session);
 if (MongoStore) {
   logger.info('MongoStore Ok.');
 } else {
@@ -153,7 +155,7 @@ if (MongoStore) {
 
 logger.info("mongodb://" + config.dbaddress + "/" + config.dbname);
 
-var options = {server: {socketOptions: {connectTimeoutMS: 1000000}}};
+const options = {server: {socketOptions: {connectTimeoutMS: 1000000}}};
 mongoose.connect("mongodb://" + config.dbaddress + "/" + config.dbname, options);
 
 //mongoose.connect("mongodb://useraccount:zz0101@localhost/jumeirah", options);
@@ -193,10 +195,14 @@ app.use(passport.initialize());
 app.use(passport.session());
 //passport
 
+const helmet = require('helmet');
+app.use(helmet());
+app.use(helmet.hidePoweredBy({setTo: 'JSF/1.2'})); // Impersonation
+
 if (config.state === 'development') {
   app.use(morgan({format: 'original', immediate: true}));
 } else {
-  var rotatestream = require('logrotate-stream');
+  const rotatestream = require('logrotate-stream');
   app.use(morgan({format: 'combined', stream: rotatestream({ file: __dirname + '/logs/access.log', size: '100k', keep: 3 })}));
 }
 
@@ -207,7 +213,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
 
-var Account = require('./models/localaccount');
+const Account = require('./models/localaccount');
 passport.use(new LocalStrategy(Account.authenticate()));
 if (Account) {
   logger.info('Account Ok.');
@@ -236,7 +242,7 @@ passport.use(new FacebookStrategy(config.facebook, (accessToken, refreshToken, p
 
 // catch 404 and forward to error handler
 app.use((req:any, res:any, next:any):void => {
-  var err = new Error('Not Found');
+  const err = new Error('Not Found');
   err.status = 404;
   res.render('error', {
     message: err.message + " " + req.originalUrl,
